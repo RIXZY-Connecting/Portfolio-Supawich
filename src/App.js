@@ -42,8 +42,7 @@ const Home = React.forwardRef((props, ref) => {
           resume={about.resume}
         />
       )}
-      {
-        experiences.show && (
+      {experiences.show && (
           <Experience experiences={experiences}/>
         )
       }

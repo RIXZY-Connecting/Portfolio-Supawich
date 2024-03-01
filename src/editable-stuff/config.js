@@ -5,11 +5,11 @@ const navBar = {
 
 // Main Body SECTION
 const mainBody = {
-  gradientColors: "#4484ce, #1ad7c0, #ff9b11, #9b59b6, #ff7f7f, #ecf0f1",
+  gradientColors: "#ecf0f1, #ff7f7f, #1B1A55, #535C91, #9290C3, #ff7f7f, #070F2B",
   firstName: "Supawich",
   middleName: "",
   lastName: "Sriviboonruttana",
-  message: " Passionate about changing the world with technology. ",
+  message: " from King Mongkut's University of Technology North Bangkok in Electronic Computer Technology. ",
   icons: [
     {
       image: "fa-github",
@@ -88,14 +88,14 @@ const skills = {
   show: true,
   heading: "Skills",
   hardSkills: [
-    { name: "Python", value: 0 },
-    { name: "SQL", value: 0 },
-    { name: "Data Structures", value: 0 },
-    { name: "C/C++", value: 0 },
-    { name: "JavaScript", value: 0 },
-    { name: "React", value: 0 },
-    { name: "HTML/CSS", value: 0 },
-    { name: "C#", value: 0 },
+    { name: "Python", value: 10 },
+    { name: "SQL", value: 20 },
+    { name: "Data Structures", value: 30 },
+    { name: "C/C++", value: 40 },
+    { name: "JavaScript", value: 50 },
+    { name: "React", value: 60 },
+    { name: "HTML/CSS", value: 70 },
+    { name: "C#", value: 80 },
   ],
   softSkills: [
     { name: "Goal-Oriented", value: 0 },
@@ -112,7 +112,7 @@ const skills = {
 // GET IN TOUCH SECTION
 const getInTouch = {
   show: true,
-  heading: "Get In Touch",
+  heading: "Contact",
   message:
     "I'm currently looking for full-time Software Engineering or Machine Learning opportunities! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to email me at",
   email: "riwkikung@hotmail.com",

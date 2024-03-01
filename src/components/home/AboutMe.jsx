@@ -44,6 +44,7 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
               alt="profilepicture"
               width={imgSize}
               height={imgSize}
+              draggable="false"
             />
           )}
         </div>
@@ -62,9 +63,21 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
               >
                 Resume
               </a>
+              &nbsp;&nbsp;&nbsp;
+              <a
+                className="btn btn-outline-dark btn-lg"
+                href={resume}
+                target="_blank"
+                rel="noreferrer noopener"
+                role="button"
+                aria-label=""
+              >
+                Transcript
+              </a>
             </p>
           )}
         </div>
+        
       </div>
     </Jumbotron>
   );
