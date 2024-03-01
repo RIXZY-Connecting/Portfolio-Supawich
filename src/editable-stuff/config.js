@@ -16,20 +16,8 @@ const mainBody = {
       url: "https://github.com/RIXZY-Connecting",
     },
     {
-      image: "fa-facebook",
-      url: "https://web.facebook.com/riwki.sriviboonruttana/",
-    },
-    {
-      image: "fa-instagram",
-      url: "https://www.instagram.com/riw.photo/",
-    },
-    {
       image: "fa-linkedin",
-      url: "",
-    },
-    {
-      image: "fa-twitter",
-      url: "",
+      url: "https://www.linkedin.com/in/supawich-sriviboonruttana-6858352b7/",
     },
   ],
 };
@@ -100,24 +88,24 @@ const skills = {
   show: true,
   heading: "Skills",
   hardSkills: [
-    { name: "Python", value: 90 },
-    { name: "SQL", value: 75 },
-    { name: "Data Structures", value: 85 },
-    { name: "C/C++", value: 65 },
-    { name: "JavaScript", value: 90 },
-    { name: "React", value: 65 },
-    { name: "HTML/CSS", value: 55 },
-    { name: "C#", value: 80 },
+    { name: "Python", value: 0 },
+    { name: "SQL", value: 0 },
+    { name: "Data Structures", value: 0 },
+    { name: "C/C++", value: 0 },
+    { name: "JavaScript", value: 0 },
+    { name: "React", value: 0 },
+    { name: "HTML/CSS", value: 0 },
+    { name: "C#", value: 0 },
   ],
   softSkills: [
-    { name: "Goal-Oriented", value: 80 },
-    { name: "Collaboration", value: 90 },
-    { name: "Positivity", value: 75 },
-    { name: "Adaptability", value: 85 },
-    { name: "Problem Solving", value: 75 },
-    { name: "Empathy", value: 90 },
-    { name: "Organization", value: 70 },
-    { name: "Creativity", value: 90 },
+    { name: "Goal-Oriented", value: 0 },
+    { name: "Collaboration", value: 0 },
+    { name: "Positivity", value: 0 },
+    { name: "Adaptability", value: 0 },
+    { name: "Problem Solving", value: 0 },
+    { name: "Empathy", value: 0 },
+    { name: "Organization", value: 0 },
+    { name: "Creativity", value: 0 },
   ],
 };
 
@@ -131,7 +119,7 @@ const getInTouch = {
 };
 
 const experiences = {
-  show: false,
+  show: true,
   heading: "Experiences",
   data: [
     {
