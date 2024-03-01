@@ -54,7 +54,7 @@ const about = {
   imageLink: require("../editable-stuff/supawich.png"),
   imageSize: 375,
   message:
-    "My name is Supawich. I’m a graduate of 2024 from King mongkut's University of Technology North Bangkok at Thailand with a degree in Electronic Computer Technology. I'm most passionate about giving back to the community, and my goal is to pursue this passion within the field of software engineering. In my free time I like working on open source projects.",
+    "My name is Supawich. I’m a graduate of 2024 from King mongkut's University of Technology North Bangkok at Thailand with a degree in Electronic Computer Technology. I'm Riw most passionate about giving back to the community, and my goal is to pursue this passion within the field of software engineering. In my free time I like working on open source projects.",
   resume: "https://cdn.discordapp.com/attachments/1066366648040312842/1213103924458954762/resume.pdf?ex=65f44211&is=65e1cd11&hm=e0f3afc66d6df753abe5eddee27c88be6f5641a33288e115be64080c1ea95f61&",
 };
 
