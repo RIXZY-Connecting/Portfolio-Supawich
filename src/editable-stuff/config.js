@@ -6,8 +6,8 @@ const navBar = {
 // Main Body SECTION
 const mainBody = {
   gradientColors: "#ecf0f1, #ff7f7f, #1B1A55, #535C91, #9290C3, #ff7f7f, #070F2B",
-  firstName: "Supawich",
-  middleName: "",
+  firstName: "I'm",
+  middleName: "Supawich",
   lastName: "Sriviboonruttana",
   message: " from King Mongkut's University of Technology North Bangkok in Electronic Computer Technology. ",
   icons: [
@@ -40,10 +40,11 @@ const about = {
   show: true,
   heading: "About Me",
   imageLink: require("../editable-stuff/supawich.png"),
-  imageSize: 375,
+  imageSize: 300,
   message:
-    "My name is Supawich. I’m a graduate of 2024 from King mongkut's University of Technology North Bangkok at Thailand with a degree in Electronic Computer Technology. I'm Riw most passionate about giving back to the community, and my goal is to pursue this passion within the field of software engineering. In my free time I like working on open source projects.",
-  resume: "https://cdn.discordapp.com/attachments/1066366648040312842/1213103924458954762/resume.pdf?ex=65f44211&is=65e1cd11&hm=e0f3afc66d6df753abe5eddee27c88be6f5641a33288e115be64080c1ea95f61&",
+    "My name is Supawich. I’m a Graduate of 2024 from King Mongkut's University of Technology North Bangkok at Thailand with a degree in Electronic Computer Technology. I'm Riw most passionate about giving back to the community, and my goal is to pursue this passion within the field of software engineering. In my free time I like working on open source projects.",
+  resume: require("../editable-stuff/resume1fixsmall.pdf"),
+  transcript: require("../editable-stuff/transcript.pdf"),
 };
 
 // PROJECTS SECTION
@@ -85,7 +86,7 @@ const leadership = {
 
 // SKILLS SECTION
 const skills = {
-  show: true,
+  show: false,
   heading: "Skills",
   hardSkills: [
     { name: "Python", value: 10 },
@@ -118,6 +119,25 @@ const getInTouch = {
   email: "riwkikung@hotmail.com",
 };
 
+const education = {
+  show: true,
+  heading: "Educations",
+  data: [
+    {
+      role: 'Chanthaburi Technical Collage',// Here Add Company Name
+      companylogo: require('../assets/img/logo_technic.png'),
+      date: '2020 – 2022',
+    },
+    {
+      role: 'King Mongkut`s University of Technology North Bangkok',
+      companylogo: require('../assets/img/logo_kmutnb.png'),
+      date: '2022 – 2024',
+      imageSize: 100,
+    },
+  ]
+}
+
+
 const experiences = {
   show: true,
   heading: "Experiences",
@@ -140,4 +160,4 @@ const experiences = {
 //   show: false,
 // };
 
-export { navBar, mainBody, about, repos, skills, leadership, getInTouch, experiences };
+export { navBar, mainBody, about, repos, skills, leadership, getInTouch, education , experiences , };

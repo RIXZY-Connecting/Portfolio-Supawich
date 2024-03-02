@@ -7,7 +7,7 @@ const pictureLinkRegex = new RegExp(
   /[(http(s)?):(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/
 );
 
-const AboutMe = ({ heading, message, link, imgSize, resume }) => {
+const AboutMe = ({ heading, message, link, imgSize, resume , transcript , }) => {
   const [profilePicUrl, setProfilePicUrl] = React.useState("");
   const [showPic, setShowPic] = React.useState(Boolean(link));
   // https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
@@ -49,8 +49,8 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
           )}
         </div>
         <div className={`col-lg-${showPic ? "7" : "12"}`}>
-          <h2 className="display-4 mb-5 text-center">{heading}</h2>
-          <p className="lead text-center">{message}</p>
+          <h2 className="display-4 mb-5 text-center unselectable">{heading}</h2>
+          <p className="lead text-center unselectable">{message}</p>
           {resume && (
             <p className="lead text-center">
               <a
@@ -66,19 +66,19 @@ const AboutMe = ({ heading, message, link, imgSize, resume }) => {
               &nbsp;&nbsp;&nbsp;
               <a
                 className="btn btn-outline-dark btn-lg"
-                href={resume}
+                href={transcript}
                 target="_blank"
                 rel="noreferrer noopener"
                 role="button"
-                aria-label=""
+                aria-label="Transcript/CV"
               >
                 Transcript
               </a>
             </p>
           )}
         </div>
-        
       </div>
+      
     </Jumbotron>
   );
 };
