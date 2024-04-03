@@ -77,7 +77,16 @@ $display-type-scale-base: minor-third;
   }
   .display-1 {
     font-size: $font-size-display-1;
+    }
+    @keyframes blinkTextCursor {
+    from {
+      border-right-color: hsl(0, 0%, 80%);
+    }
+    to {
+      border-right-color: transparent;
+    }
   }
+  
 }
 // Create the heading font sizes
 @include create-heading-type-scale($heading-type-scale-base);
