@@ -30,7 +30,7 @@ const about = {
   imageLink: require("../editable-stuff/supawich_profile.png"),
   imageSize: 300,
   message:
-    "My name is Supawich. I’m a Graduate of 2024 from King Mongkut's University of Technology North Bangkok at Thailand with a degree in Electronic Computer Technology. most passionate about giving back to the community, and my goal is to pursue this passion within the field of software engineering and graphic design. In my free time  I like take a picture and learn more skills.",
+    "My name is Supawich. You can call me RYU. I’m a Graduate of 2024 from King Mongkut's University of Technology North Bangkok at Thailand with a degree in Electronic Computer Technology. most passionate about giving back to the community, and my goal is to pursue this passion within the field of software engineering and graphic design. In my free time  I like take a picture and learn more skills.",
   resume: require("../editable-stuff/resume.pdf"),
   transcript: require("../editable-stuff/transcript.pdf"),
 };
