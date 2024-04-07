@@ -6,6 +6,252 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Basic button styles */
+.btn-aboutme {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #ffffff; /* Border color is white */
+  border-radius: 5px;
+  color: white; /* Text is transparent */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+//
+
+/* App.css */
+.day-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.night-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+
+
+//
+
+.experience-company-logo {
+  width: auto; /* ปรับขนาดของรูปภาพให้เหมาะสม */
+  height: auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับรูปภาพ */
+}
+.experience-lead {
+  font-size: 18px; /* ปรับขนาดตัวอักษรให้เหมาะสม */
+  color: #333; /* สีตัวอักษร */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้ตัวอักษร */
+  margin-top: 10px; /* ระยะห่างด้านบน */
+  position: relative; /* กำหนดให้สามารถใช้ position:absolute ได้ */
+}
+
+.experience-lead strong {
+  font-weight: bold;
+  color: #121212; /* สีดำ */
+}
+
+.experience-lead .role {
+  color: #673ab7; /* สีม่วง */
+}
+
+.experience-lead .location {
+  color: #303f9f; /* สีน้ำเงิน */
+}
+
+.experience-lead .date {
+  color: #1565c0; /* สีน้ำเงินเข้ม */
+}
+
+//
+
+// ryuproject //
+
+.rynproject-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  border: 1px solid #5c5c5c; /* เพิ่มกรอบบางๆ สีน้ำเงิน */
+
+  .project-logo {
+    max-width: 100%; /* รูปจะมีขนาดไม่เกินความกว้างของพื้นที่ที่คงที่ */
+    height: auto; /* ความสูงของรูปจะปรับอัตโนมัติเพื่อรักษาสัดส่วน */
+    border-radius: 20px; /* สไตล์ของการโค้งของมุม */
+  }
+
+  .content {
+    flex: 1;
+    text-align: left; /* จัดข้อความไปทางซ้าย */
+  }
+
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .info {
+    font-size: 16px;
+  }
+}
+
+//
+
+.skill-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+  justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+}
+
+.skill-logo {
+  width: 100px; /* ปรับขนาดภาพตามที่ต้องการ */
+  height: auto;
+}
+
+.skill-name {
+  margin-top: 10px; /* เพิ่มระยะห่างระหว่างภาพและข้อความ */
+  text-align: center; /* จัดให้อยู่ตรงกลาง */
+  font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+}
+
+
+.skill-info {
+  font-size: 1rem; /* ปรับขนาดตัวหนังสือข้อความคำอธิบาย */
+  color: #666; /* สีของตัวหนังสือข้อความคำอธิบาย */
+}
+
+
+//
+.ryu-project-card {
+  width: 100%;
+
+  &__item {
+    width: calc(100% - 20px); /* ปรับขนาดของแต่ละ item */
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+    border: 2px solid #ccc; /* ใส่กรอบ */
+    transition: transform 0.3s ease;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &__details {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 0 0 10px 10px;
+  }
+
+  &__details--title {
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0;
+  }
+}
+
+
+//
+
+.my-4 {
+  border-width: 2px; /* เปลี่ยนความหนาของเส้นเป็น 2px */
+  border-radius: 3px; /* เปลี่ยนรูปแบบของมุมของเส้นเป็นมุมโค้ง */
+}
+//
+
+.education-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  border: 1px solid #434343; /* เพิ่มกรอบบางๆ สีน้ำเงิน */
+}
+  
+.education-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+  margin-right: 20px;
+}
+
+.company-logo {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+  flex: 1;
+}
+
+.role {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  max-width: 100%; /* ข้อความจะไม่เกินขอบเขตของ container */
+  overflow: hidden; /* ซ่อนข้อความที่เกินขอบเขตของ container */
+  text-overflow: ellipsis; /* แสดงเครื่องหมาย ellipsis (...) เมื่อข้อความเกินขอบเขตของ container */
+}
+
+.level,
+.department,
+.date {
+  color: #6c757d;
+  margin-bottom: 5px;
+}
+
+.gpa {
+  font-weight: bold;
+}
+
+.gpa span {
+  background-color: #9ac7f7;
+  color: #1a1a1a;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+//
+
+.heading-shadow{
+  text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+
+/* Hover effect */
+.btn-aboutme:hover {
+  border-color: #f2f2f2; /* Light gray border on hover */
+  background: #535C91;
+  color: white; /* Text color becomes blue on hover */
+}
+
+/* Active state */
+.btn-aboutme:active {
+  border-color: #e6e6e6; /* Slightly darker border when button is active */
+}
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -142,3 +388,14 @@ code {
   -ms-user-select: none;
   user-select: none;
 }
+
+
+
+
+
+////////
+/// 
+/// 
+/// 
+/// 
+

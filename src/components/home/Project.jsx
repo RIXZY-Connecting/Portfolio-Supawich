@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import ProjectCard from "./ProjectCard";
 import axios from "axios";
 
+
 const dummyProject = {
   name: null,
   description: null,
@@ -56,8 +57,10 @@ const Project = ({ heading, username, length, specfic }) => {
 
   return (
     <Jumbotron fluid id="projects" className="bg-light m-0 unselectable">
+       
       <Container className="">
-        <h2 className="display-4 pb-5 text-center">{heading}</h2>
+      <hr className="my-4" /> {/* เพิ่มเส้นระหว่าง heading กับ cards */}
+        <h2 className="display-4 pb-5 text-center">{heading} <i className="fab fa-github" /></h2>
         <Row>
           {projectsArray.length
             ? projectsArray.map((project, index) => (

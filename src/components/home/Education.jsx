@@ -11,8 +11,9 @@ const Education = ({ education }) => {
     <section className="section">
       <Container>
         <Jumbotron className="bg-white ">
-          <h2 className="display-4 mb-5 text-center unselectable">
-            {education.heading}
+        <hr className="my-4" /> {/* เพิ่มเส้นระหว่าง heading กับ cards */}
+          <h2 className="display-4 mb-5 text-center unselectable heading-shadow" id="education">
+            {education.heading} <i className="fas fa-graduation-cap"></i>
           </h2>
           <Row>
             {
@@ -22,7 +23,7 @@ const Education = ({ education }) => {
             }
           </Row>
         </Jumbotron>
-      </Container>
+       </Container>
     </section>
   );
 }

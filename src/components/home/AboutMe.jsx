@@ -34,11 +34,12 @@ const AboutMe = ({ heading, message, link, imgSize, resume , transcript , }) => 
 
   return (
     <Jumbotron id="aboutme" className="m-0">
+      
       <div className="container row" draggable="false">
         <div className="col-5 d-none d-lg-block align-self-center ">
           {showPic && (
             <img
-              className="border border-secondary rounded-circle shadow-lg "
+              className="border border-secondary rounded-circle shadow-lg card"
               src={profilePicUrl}
               alt="profilepicture"
               width={imgSize}
@@ -48,7 +49,7 @@ const AboutMe = ({ heading, message, link, imgSize, resume , transcript , }) => 
           )}
         </div>
         <div className={`col-lg-${showPic ? "7" : "12"}`}>
-          <h2 className="display-4 mb-5 text-center unselectable">{heading}</h2>
+          <h2 className="display-4 mb-5 text-center unselectable heading-shadow">{heading}</h2>
           <p className="lead text-center unselectable">{message}</p>
           {resume && (
             <p className="lead text-center">

@@ -1,23 +1,25 @@
 import React from 'react';
-
-import {
-  Col,
-} from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 const EducationCard = ({ data }) => {
   return (
     <Col lg="6">
-      <div className="pb-5 text-center unselectable">
-        <img className=" mb-3" src={data.companylogo} alt="" draggable="false"/>
-        <p className="lead">
-          {data.role}
-          <br />
-          {data.date}
-        </p>
-
+ 
+      <div className="pb-5 text-center unselectable education-card card">
+        <div className="logo-container">
+          <img className="company-logo" src={data.companylogo} alt="" draggable="false" />
+        </div>
+        <div className="content">
+          <p className="role">{data.role}</p>
+          <p className="level">{data.level}</p>
+          <p className="department">{data.department}</p>
+          <p className="date">{data.date}</p>
+          <p className="gpa">GPA: <span>{data.gpa}</span></p>
+        </div>
       </div>
+      <br/>
+
     </Col>
   );
 }
-
 export default EducationCard;

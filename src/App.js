@@ -10,6 +10,8 @@ import {
   getInTouch,
   experiences,
   education,
+  ryuprojects,
+  ryuskills,
 } from "./editable-stuff/config.js";
 import MainBody from "./components/home/MainBody";
 import AboutMe from "./components/home/AboutMe";
@@ -23,6 +25,8 @@ import Education from "./components/home/Education";
 import GetInTouch from "./components/home/GetInTouch.jsx";
 import Leadership from "./components/home/Leadership.jsx";
 import Experience from "./components/home/Experience";
+import RyuProject from "./components/home/RyuProject.jsx";
+import RyuSkills from "./components/home/RyuSkills.jsx";
 
 const Home = React.forwardRef((props, ref) => {
   return (
@@ -44,6 +48,16 @@ const Home = React.forwardRef((props, ref) => {
           transcript={about.transcript}
         />
       )}
+            {ryuskills.show&& (
+         <RyuSkills ryuskills={ryuskills}/>
+      )}
+            {skills.show && (
+        <Skills
+          heading={skills.heading}
+          hardSkills={skills.hardSkills}
+          softSkills={skills.softSkills}
+        />
+      )}
       {education.show && (
           <Education education={education}/>
         )
@@ -51,6 +65,11 @@ const Home = React.forwardRef((props, ref) => {
       {experiences.show && (
           <Experience experiences={experiences}/>
         )
+      }
+      {ryuprojects.show&& (
+         <RyuProject ryuprojects={ryuprojects}/>
+      )
+
       }
 
       {repos.show && (
@@ -67,13 +86,6 @@ const Home = React.forwardRef((props, ref) => {
           message={leadership.message}
           img={leadership.images}
           imageSize={leadership.imageSize}
-        />
-      )}
-      {skills.show && (
-        <Skills
-          heading={skills.heading}
-          hardSkills={skills.hardSkills}
-          softSkills={skills.softSkills}
         />
       )}
       
@@ -102,6 +114,7 @@ const App = () => {
         )}
       </Footer>
     </BrowserRouter>
+    
   );
 };
 

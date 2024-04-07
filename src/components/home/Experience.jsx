@@ -11,8 +11,9 @@ const Experience = ({ experiences }) => {
     <section className="section">
       <Container>
         <Jumbotron className="bg-white ">
-          <h2 className="display-4 mb-5 text-center unselectable">
-            {experiences.heading}
+        <hr className="my-4" /> {/* เพิ่มเส้นระหว่าง heading กับ cards */}
+          <h2 className="display-4 mb-5 text-center unselectable heading-shadow" id="experiences">
+            {experiences.heading} <i className="fas fa-briefcase"></i>
           </h2>
           <Row>
             {

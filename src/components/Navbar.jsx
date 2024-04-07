@@ -3,7 +3,7 @@ import { useScrollPosition } from "../hooks/useScrollPosition";
 import useResizeObserver from "../hooks/useResizeObserver";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { mainBody, repos, about, skills, experiences, education } from "../editable-stuff/config.js";
+import { mainBody, repos, about, skills, experiences, education , ryuprojects,getInTouch,} from "../editable-stuff/config.js";
 import { NavLink } from "./home/migration";
 
 const Navigation = React.forwardRef((props, ref) => {
@@ -54,7 +54,7 @@ const Navigation = React.forwardRef((props, ref) => {
               className="nav-item lead"
               href={process.env.PUBLIC_URL + "/#aboutme"}
             >
-              About
+              [ About ]
             </NavLink>
           )}
           {skills.show && (
@@ -62,7 +62,7 @@ const Navigation = React.forwardRef((props, ref) => {
               className="nav-item lead"
               href={process.env.PUBLIC_URL + "/#skills"}
             >
-              Skills
+              [ Skills ]
             </NavLink>
           )}
           {education.show && (
@@ -70,7 +70,7 @@ const Navigation = React.forwardRef((props, ref) => {
               className="nav-item lead"
               href={process.env.PUBLIC_URL + "/#education"}
             >
-              Education
+              [ Education ]
             </NavLink>
           )}
           {experiences.show && (
@@ -78,17 +78,34 @@ const Navigation = React.forwardRef((props, ref) => {
               className="nav-item lead"
               href={process.env.PUBLIC_URL + "/#experiences"}
             >
-              Experiences
+              [ Experiences ]
             </NavLink>
           )}
-                    {repos.show && (
-
-          <NavLink
-            href={process.env.PUBLIC_URL + "/#projects"}
-          >
-            Projects
-          </NavLink>
+         
+          
+          {ryuprojects.show && (
+            <NavLink
+              className="nav-item lead"
+              href={process.env.PUBLIC_URL + "/#ryuprojects"}
+            >
+            [ Projects ]
+            </NavLink>
           )}
+           {repos.show && (
+
+            <NavLink
+              href={process.env.PUBLIC_URL + "/#projects"}
+            >
+             [ GitHub ]
+            </NavLink>
+            )}
+            {getInTouch.show && (
+            <NavLink
+              href={process.env.PUBLIC_URL + "/#contact"}
+            >
+            [ Contact ]
+            </NavLink>
+            )}
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>

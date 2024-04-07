@@ -8,7 +8,7 @@ const mainBody = {
   //gradientColors: "#ecf0f1, #ff7f7f, #1B1A55, #535C91, #9290C3, #ff7f7f, #070F2B",
     gradientColors: "#2B2741, #ff7f7f, #1B1A55, #9290C3, #1B1A55, #535C91, #2B2741",
   
-  firstName: "Hello ,I'm Supawich",
+  firstName: "I'm Supawich",
   middleName: "Sriviboonruttana",
   lastName: "",
   message: "WELCOME TO MY PORTFOLIO WEBSITE.",
@@ -98,9 +98,11 @@ const getInTouch = {
   show: true,
   heading: "Contact",
   message:
-    "I'm currently looking for Intership Web Developer or Full-stack Developer opportunities! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to email me at",
-   email: "supawich.contact@gmail.com",
+    "I'm currently looking for Internship Web Developer or Full-stack Developer opportunities! If you know of any positions available, if you have any questions, or if you just want to say hi, please feel free to email me at",
+  email: "supawich.contact@gmail.com",
+  phone: "+66 930355882",
 };
+
 
 const education = {
   show: true,
@@ -109,12 +111,26 @@ const education = {
     {
       role: 'Chanthaburi Technical Collage',// Here Add Company Name
       companylogo: require('../assets/img/logo_technic.png'),
+      level:'High Vocational',
+      department:'Technology Computer',
       date: '2020 – 2022',
+      gpa: '3.69',
     },
     {
-      role: 'King Mongkut`s University of Technology North Bangkok',
+      role: 'Chanthaburi Technical Collage',// Here Add Company Name
+      companylogo: require('../assets/img/logo_technic.png'),
+      level:' Vocational',
+      department:'Technic Computer',
+      date: '2017 – 2020',
+      gpa: '3.62',
+    },
+    {
+      role: 'King Mongkuts University of Technology North Bangkok',
       companylogo: require('../assets/img/logo_kmutnb.png'),
-      date: '2022 – 2024',
+      date: '2022 – Present',
+      level:'Bachelor',
+      department:'Electronics Computer Technology',
+      gpa: '3.12',
       imageSize: 50,
     },
   ]
@@ -126,26 +142,87 @@ const experiences = {
   heading: "Experiences",
   data: [
     {
-      role: 'IT Support & Network Maintenance ( Chanthaburi Technical Collage ) 🔧',// Here Add Company Name 
+      role: 'IT Support & Network Maintenance 🔧',
+      location:'  ( Chanthaburi Technical Collage )',
       companylogo: require('../assets/img/logo_technic_Inf.png'),
       date: '[ June - July | 2021 ]',
     },
     {
-      role: 'Technician ( Advice IT Infinite Chanthaburi ) 🔧',
+      role: 'Technician 🔧',
+      location:' ( Advice IT Infinite Chanthaburi ) ',
       companylogo: require('../assets/img/logo_advice_its.png'),
-      date: '[ Sep - March | 2018-2019 ]',
+      date: '[ Sep - March | 2018 - 2019 ]',
     },
     {
-      role: 'Front End Deverloper ( Laconic Technology Co., Ltd. ) ',
+      role: 'Front End Deverloper 💻',
+      location: ' ( Laconic Technology Co., Ltd. ) ',
       companylogo: require('../assets/img/laconic_fed.png'),
       date: '[ May - Aug | 2024 ]',
     },
   ]
 }
+const ryuprojects = {
+  show: true,
+  heading: "My Project",
+  data: [
+    {
+     img :  require('../assets/img/ReactPortfolioProject.png'),
+     name:'My Website Portfolio (2024)',
+     info: 'This project is part of the subject SELECTED TOPIC IN COMPUTER in class, Learn about React.js , Github desktop, Node.js and Mongodb.', 
+     url: "https://www.linkedin.com/in/supawich-contact/",
+    },
+    {
+      img :  require('../assets/img/vb2018.png'),
+      name:'Program Exam for students grade 3 using VB.Net (2018)',
+      info: 'This project using for testing grade 3 students with program. The program has questions and  choose from and a score is summed up when completed ', 
+      url: "https://www.linkedin.com/in/supawich-contact/",
+     },
+
+  ]
+}
+const ryuskills = {
+  show: true,
+  heading: "Skills",
+  data: [
+    {
+     img :  require('../assets/img/skills/react.png'),
+     text:'React',
+    },
+    {
+      img :  require('../assets/img/skills/javascript.png'),
+      text:'JavaScript',
+     },
+     {
+      img :  require('../assets/img/skills/bootstrap.png'),
+      text:'Bootstrap',
+     },
+     {
+       img :  require('../assets/img/skills/css.png'),
+       text:'CSS',
+      },
+      {
+        img :  require('../assets/img/skills/html.png'),
+        text:'HTML',
+       },
+       {
+        img :  require('../assets/img/skills/java.png'),
+        text:'JAVA',
+       },
+       {
+        img :  require('../assets/img/skills/php.png'),
+        text:'PHP',
+       },
+       {
+        img :  require('../assets/img/skills/PS.png'),
+        text:'PhotoShop',
+       },
+  ]
+}
+const ryuprojectsnumber = ryuprojects.data.length;
+
 
 // Blog SECTION
 // const blog = {
 //   show: false,
 // };
-
-export { navBar, mainBody, about, repos, skills, leadership, getInTouch, education , experiences , };
+export { navBar, mainBody, about, repos, skills, leadership, getInTouch, education , experiences , ryuprojects, ryuskills , ryuprojectsnumber };
