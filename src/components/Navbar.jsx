@@ -16,7 +16,7 @@ const Navigation = React.forwardRef((props, ref) => {
   useScrollPosition(
     ({ prevPos, currPos }) => {
       if (!navbarDimensions) return;
-      currPos.y + ref.current.offsetTop - navbarDimensions.bottom > 5
+      currPos.y + (ref.current?.offsetTop || 0) - navbarDimensions.bottom > 5
         ? setIsTop(true)
         : setIsTop(false);
       setScrollPosition(currPos.y);
@@ -26,7 +26,7 @@ const Navigation = React.forwardRef((props, ref) => {
 
   React.useEffect(() => {
     if (!navbarDimensions) return;
-    navBottom - scrollPosition >= ref.current.offsetTop
+    navBottom - scrollPosition >= (ref.current?.offsetTop || 0)
       ? setIsTop(false)
       : setIsTop(true);
   }, [navBottom, navbarDimensions, ref, scrollPosition]);
@@ -38,7 +38,7 @@ const Navigation = React.forwardRef((props, ref) => {
         }`}
       expand="lg"
     >
-      <Navbar.Brand className="navbar-brand text-light" href={process.env.PUBLIC_URL + "/#home"}>
+      <Navbar.Brand className="navbar-brand text-light" href={import.meta.env.BASE_URL + "/#home"}>
         {`<${mainBody.firstName} />`}
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggler" />
@@ -46,13 +46,13 @@ const Navigation = React.forwardRef((props, ref) => {
         <Nav className="navbar-nav mr-auto">
           {/* {
             <NavLink className="nav-item lead">
-              <Link to={process.env.PUBLIC_URL + "/blog"}>Blog</Link>
+              <Link to={import.meta.env.BASE_URL + "/blog"}>Blog</Link>
             </NavLink>
           } */}
           {about.show && (
             <NavLink
               className="nav-item lead"
-              href={process.env.PUBLIC_URL + "/#aboutme"}
+              href={import.meta.env.BASE_URL + "/#aboutme"}
             >
               [ About ]
             </NavLink>
@@ -60,7 +60,7 @@ const Navigation = React.forwardRef((props, ref) => {
           {skills.show && (
             <NavLink
               className="nav-item lead"
-              href={process.env.PUBLIC_URL + "/#skills"}
+              href={import.meta.env.BASE_URL + "/#skills"}
             >
               [ Skills ]
             </NavLink>
@@ -68,7 +68,7 @@ const Navigation = React.forwardRef((props, ref) => {
           {education.show && (
             <NavLink
               className="nav-item lead"
-              href={process.env.PUBLIC_URL + "/#education"}
+              href={import.meta.env.BASE_URL + "/#education"}
             >
               [ Education ]
             </NavLink>
@@ -76,7 +76,7 @@ const Navigation = React.forwardRef((props, ref) => {
           {experiences.show && (
             <NavLink
               className="nav-item lead"
-              href={process.env.PUBLIC_URL + "/#experiences"}
+              href={import.meta.env.BASE_URL + "/#experiences"}
             >
               [ Experiences ]
             </NavLink>
@@ -86,7 +86,7 @@ const Navigation = React.forwardRef((props, ref) => {
           {ryuprojects.show && (
             <NavLink
               className="nav-item lead"
-              href={process.env.PUBLIC_URL + "/#ryuprojects"}
+              href={import.meta.env.BASE_URL + "/#ryuprojects"}
             >
             [ Projects ]
             </NavLink>
@@ -94,14 +94,14 @@ const Navigation = React.forwardRef((props, ref) => {
            {repos.show && (
 
             <NavLink
-              href={process.env.PUBLIC_URL + "/#projects"}
+              href={import.meta.env.BASE_URL + "/#projects"}
             >
              [ GitHub ]
             </NavLink>
             )}
             {getInTouch.show && (
             <NavLink
-              href={process.env.PUBLIC_URL + "/#contact"}
+              href={import.meta.env.BASE_URL + "/#contact"}
             >
             [ Contact ]
             </NavLink>
