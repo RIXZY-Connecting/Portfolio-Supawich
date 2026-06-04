@@ -1,401 +1,842 @@
+/* ============================================================
+   DESIGN TOKENS — OKLCH palette
+   Primary: teal oklch(0.68 0.130 188)
+   Accent:  amber oklch(0.78 0.130 62)
+   bg:      near-black oklch(0.09 0.000 0)
+   ============================================================ */
+
+:root {
+  --color-bg:        oklch(0.09 0.000 0);
+  --color-surface:   oklch(0.13 0.010 188);
+  --color-surface-2: oklch(0.17 0.012 188);
+  --color-ink:       oklch(0.94 0.008 188);
+  --color-muted:     oklch(0.55 0.014 188);
+  --color-primary:   oklch(0.68 0.130 188);
+  --color-primary-dim: oklch(0.52 0.090 188);
+  --color-accent:    oklch(0.78 0.130 62);
+  --color-accent-dim: oklch(0.62 0.090 62);
+  --color-border:    oklch(0.22 0.014 188);
+  --color-border-subtle: oklch(0.17 0.008 188);
+
+  /* Spacing scale */
+  --section-gap: clamp(5rem, 10vw, 9rem);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+
+  /* Z-index scale */
+  --z-base: 0;
+  --z-sticky: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
 html {
-  font-size: 14px;
-  @media (min-width: 768px) {
-    font-size: 16px;
-  }
-  scroll-behavior: smooth;
-}
-
-/* Basic button styles */
-.btn-aboutme {
-  display: inline-block;
-  padding: 10px 20px;
   font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  border: 2px solid #ffffff; /* Border color is white */
-  border-radius: 5px;
-  color: white; /* Text is transparent */
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
-//
-
-/* App.css */
-.day-mode {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.night-mode {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-
-
-//
-
-.experience-company-logo {
-  width: auto; /* ปรับขนาดของรูปภาพให้เหมาะสม */
-  height: auto;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับรูปภาพ */
-}
-.experience-lead {
-  font-size: 18px; /* ปรับขนาดตัวอักษรให้เหมาะสม */
-  color: #333; /* สีตัวอักษร */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* เพิ่มเงาให้ตัวอักษร */
-  margin-top: 10px; /* ระยะห่างด้านบน */
-  position: relative; /* กำหนดให้สามารถใช้ position:absolute ได้ */
-}
-
-.experience-lead strong {
-  font-weight: bold;
-  color: #121212; /* สีดำ */
-}
-
-.experience-lead .role {
-  color: #673ab7; /* สีม่วง */
-}
-
-.experience-lead .location {
-  color: #303f9f; /* สีน้ำเงิน */
-}
-
-.experience-lead .date {
-  color: #1565c0; /* สีน้ำเงินเข้ม */
-}
-
-//
-
-// ryuproject //
-
-.rynproject-card {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s;
-  display: flex;
-  align-items: center;
-  border: 1px solid #5c5c5c; /* เพิ่มกรอบบางๆ สีน้ำเงิน */
-
-  .project-logo {
-    max-width: 100%; /* รูปจะมีขนาดไม่เกินความกว้างของพื้นที่ที่คงที่ */
-    height: auto; /* ความสูงของรูปจะปรับอัตโนมัติเพื่อรักษาสัดส่วน */
-    border-radius: 20px; /* สไตล์ของการโค้งของมุม */
-  }
-
-  .content {
-    flex: 1;
-    text-align: left; /* จัดข้อความไปทางซ้าย */
-  }
-
-  .name {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-  .info {
-    font-size: 16px;
-  }
-}
-
-//
-
-.skill-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
-  justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
-}
-
-.skill-logo {
-  width: 100px; /* ปรับขนาดภาพตามที่ต้องการ */
-  height: auto;
-}
-
-.skill-name {
-  margin-top: 10px; /* เพิ่มระยะห่างระหว่างภาพและข้อความ */
-  text-align: center; /* จัดให้อยู่ตรงกลาง */
-  font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
-}
-
-
-.skill-info {
-  font-size: 1rem; /* ปรับขนาดตัวหนังสือข้อความคำอธิบาย */
-  color: #666; /* สีของตัวหนังสือข้อความคำอธิบาย */
-}
-
-
-//
-.ryu-project-card {
-  width: 100%;
-
-  &__item {
-    width: calc(100% - 20px); /* ปรับขนาดของแต่ละ item */
-    margin: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
-    border: 2px solid #ccc; /* ใส่กรอบ */
-    transition: transform 0.3s ease;
-  }
-
-  &__img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px 10px 0 0;
-  }
-
-  &__details {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 0 0 10px 10px;
-  }
-
-  &__details--title {
-    color: #333;
-    font-size: 1.2rem;
-    margin: 0;
-  }
-}
-
-
-//
-
-.my-4 {
-  border-width: 2px; /* เปลี่ยนความหนาของเส้นเป็น 2px */
-  border-radius: 3px; /* เปลี่ยนรูปแบบของมุมของเส้นเป็นมุมโค้ง */
-}
-//
-
-.education-card {
-  background-color: #ffffff;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s;
-  display: flex;
-  align-items: center;
-  border: 1px solid #434343; /* เพิ่มกรอบบางๆ สีน้ำเงิน */
-}
-  
-.education-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.logo-container {
-  margin-right: 20px;
-}
-
-.company-logo {
-  width: 80px;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.content {
-  flex: 1;
-}
-
-.role {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  max-width: 100%; /* ข้อความจะไม่เกินขอบเขตของ container */
-  overflow: hidden; /* ซ่อนข้อความที่เกินขอบเขตของ container */
-  text-overflow: ellipsis; /* แสดงเครื่องหมาย ellipsis (...) เมื่อข้อความเกินขอบเขตของ container */
-}
-
-.level,
-.department,
-.date {
-  color: #6c757d;
-  margin-bottom: 5px;
-}
-
-.gpa {
-  font-weight: bold;
-}
-
-.gpa span {
-  background-color: #9ac7f7;
-  color: #1a1a1a;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-//
-
-.heading-shadow{
-  text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
-  position: relative;
-}
-
-
-/* Hover effect */
-.btn-aboutme:hover {
-  border-color: #f2f2f2; /* Light gray border on hover */
-  background: #535C91;
-  color: white; /* Text color becomes blue on hover */
-}
-
-/* Active state */
-.btn-aboutme:active {
-  border-color: #e6e6e6; /* Slightly darker border when button is active */
-}
-
-
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Figtree', 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+::selection {
+  background: oklch(0.68 0.130 188 / 0.3);
+  color: var(--color-ink);
 }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+h1, h2, h3, h4 {
+  font-family: 'Bricolage Grotesque', 'Figtree', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-wrap: balance;
+  color: var(--color-ink);
+}
+
+h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+
+p { text-wrap: pretty; max-width: 70ch; }
+
+code, .mono {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.875em;
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+
+.section-py {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+.container-tight {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+/* ============================================================
+   SECTION HEADINGS — no eyebrow pattern, big + direct
+   ============================================================ */
+
+.section-heading {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  margin-bottom: 0.25rem;
+}
+
+.section-heading--teal {
+  color: var(--color-primary);
+}
+
+.section-meta {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 3rem;
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
+.section-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  margin: 1rem 0 2.5rem;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+
+.navbar-ryu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  padding: 0.75rem clamp(1.5rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s ease, border-color 0.3s ease;
+
+  &.scrolled {
+    background: oklch(0.10 0.008 188 / 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+}
+
+.navbar-ryu__brand {
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  letter-spacing: 0;
+  transition: color 0.2s;
+
+  &:hover { color: var(--color-ink); }
+}
+
+.navbar-ryu__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-ryu__link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-primary);
+    transition: width 0.25s ease;
+  }
+
+  &:hover {
+    color: var(--color-ink);
+    &::after { width: 100%; }
+  }
+}
+
+/* ============================================================
+   CARDS — surface glass style
+   ============================================================ */
+
+.card-ryu {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary-dim);
+    box-shadow: 0 0 32px oklch(0.68 0.130 188 / 0.12);
+  }
+}
+
+/* ============================================================
+   PILL / BADGE
+   ============================================================ */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.pill--teal {
+  background: oklch(0.68 0.130 188 / 0.15);
+  color: var(--color-primary);
+  border: 1px solid oklch(0.68 0.130 188 / 0.3);
+}
+
+.pill--amber {
+  background: oklch(0.78 0.130 62 / 0.15);
+  color: var(--color-accent);
+  border: 1px solid oklch(0.78 0.130 62 / 0.3);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn-ryu {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-ryu--primary {
+  background: var(--color-primary);
+  color: oklch(0.09 0 0);  /* white text on teal fill */
+  
+  &:hover {
+    background: oklch(0.75 0.130 188);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px oklch(0.68 0.130 188 / 0.35);
+    color: oklch(0.09 0 0);
+  }
+  &:active { transform: translateY(0); }
+}
+
+.btn-ryu--ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-border);
+
+  &:hover {
+    border-color: var(--color-primary-dim);
+    color: var(--color-primary);
+  }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(6rem, 12vw, 10rem) clamp(1.5rem, 5vw, 3rem) clamp(4rem, 8vw, 6rem);
+}
+
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(oklch(0.22 0.014 188 / 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.22 0.014 188 / 0.25) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 30%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+
+  &--primary {
+    width: clamp(300px, 50vw, 600px);
+    height: clamp(200px, 35vw, 400px);
+    background: oklch(0.68 0.130 188 / 0.18);
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &--accent {
+    width: clamp(200px, 30vw, 350px);
+    height: clamp(150px, 20vw, 250px);
+    background: oklch(0.78 0.130 62 / 0.10);
+    bottom: 20%;
+    right: 10%;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-pre {
+  font-family: 'Fira Code', monospace;
+  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '>';
+    opacity: 0.6;
+  }
+}
+
+.hero-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-ink);
+  margin-bottom: 0.25rem;
+  text-wrap: balance;
+}
+
+.hero-name-teal {
+  color: var(--color-primary);
+}
+
+.hero-message {
+  font-family: 'Fira Code', monospace;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--color-muted);
+  margin: 1.5rem auto 0;
+  max-width: 55ch;
+  line-height: 1.6;
+}
+
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-social-icons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  justify-content: center;
+}
+
+.hero-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  background: var(--color-surface);
+
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: oklch(0.68 0.130 188 / 0.10);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px oklch(0.68 0.130 188 / 0.2);
+  }
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+
+.about-section {
+  position: relative;
+  z-index: 1;
+}
+
+.about-image-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.about-image-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: conic-gradient(
+    from 0deg,
+    var(--color-primary) 0%,
+    transparent 40%,
+    var(--color-accent) 60%,
+    transparent 100%
+  );
+  animation: spin-slow 8s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-image-ring { animation: none; }
+}
+
+.about-image {
+  border-radius: 50%;
+  border: 4px solid var(--color-bg);
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.about-desc {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: var(--color-muted);
+  line-height: 1.8;
+  max-width: 62ch;
+}
+
+/* ============================================================
+   SKILLS — hex grid feel, no identical card grid
+   ============================================================ */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1.25rem 0.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  cursor: default;
+
+  img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  span {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem;
+    color: var(--color-muted);
+    text-align: center;
+  }
+
+  &:hover {
+    border-color: var(--color-primary-dim);
+    background: var(--color-surface-2);
+    box-shadow: 0 0 20px oklch(0.68 0.130 188 / 0.10);
+
+    span { color: var(--color-primary); }
+  }
+}
+
+/* ============================================================
+   TIMELINE (Education & Experience)
+   ============================================================ */
+
+.timeline {
+  position: relative;
+  padding-left: clamp(1.5rem, 4vw, 2.5rem);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      var(--color-primary),
+      var(--color-border) 80%,
+      transparent
+    );
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+
+  &:last-child { margin-bottom: 0; }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * clamp(1.5rem, 4vw, 2.5rem));
+    top: 0.6rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 0 0 1px var(--color-primary);
+  }
+}
+
+.timeline-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  transition: border-color 0.25s ease;
+
+  &:hover {
+    border-color: var(--color-primary-dim);
+  }
+}
+
+.timeline-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: white;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.timeline-role {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.3;
+}
+
+.timeline-org {
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.timeline-meta {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.timeline-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  background: oklch(0.78 0.130 62 / 0.15);
+  color: var(--color-accent);
+  border: 1px solid oklch(0.78 0.130 62 / 0.3);
+}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+
+.project-card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+
+  &:hover {
+    border-color: var(--color-primary-dim);
+    transform: translateY(-4px);
+
+    .project-card__overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.project-card__img-wrap {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--color-surface-2);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Images do NOT animate on hover (impeccable rule) */
+  }
+}
+
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: oklch(0.09 0 0 / 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.project-card__body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-card__title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.3;
+}
+
+.project-card__desc {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
+.contact-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, oklch(0.68 0.130 188 / 0.08), transparent);
+    pointer-events: none;
+  }
+}
+
+.contact-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: 'Fira Code', monospace;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 0.875rem 1.75rem;
+  border: 1px solid oklch(0.68 0.130 188 / 0.35);
+  border-radius: var(--radius-md);
+  background: oklch(0.68 0.130 188 / 0.08);
+  transition: all 0.2s ease;
+  word-break: break-all;
+
+  &:hover {
+    background: oklch(0.68 0.130 188 / 0.15);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 24px oklch(0.68 0.130 188 / 0.2);
+    color: var(--color-primary);
+  }
+}
+
+.contact-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer-ryu {
+  border-top: 1px solid var(--color-border-subtle);
+  padding: 2.5rem clamp(1.5rem, 5vw, 3rem);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
+}
+
+/* ============================================================
+   ANIMATED BACKGROUND — subtle grid scroll
+   ============================================================ */
 
 .bgstyle {
-  /* background: linear-gradient(136deg, #1ad7c0, #8E44AD, #ff9b11, #1F3A93, #ddd8c6, #000000, #000000);  */
-  /*background: linear-gradient(
-    136deg,
-    #4484ce,
-    #1ad7c0,
-    #ff9b11,
-    #9b59b6,
-    #ff7f7f,
-    #ecf0f1
-  );*/
-
   background-size: 1200% 1200%;
   -webkit-animation: BackgroundAnimation 70s ease infinite;
-  -moz-animation: BackgroundAnimation 70s ease infinite;
-  -o-animation: BackgroundAnimation 70s ease infinite;
   animation: BackgroundAnimation 70s ease infinite;
   height: 100%;
 }
 
-.bg-gradient {
-  background: linear-gradient(rgba(245, 245, 245, 1), rgba(245, 245, 245, 0));
+/* ============================================================
+   MISC OVERRIDES — clean up Bootstrap conflicts
+   ============================================================ */
+
+a { color: inherit; }
+
+.unselectable {
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-.navbar-transparent {
-  background-color: rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s;
-}
-.navbar-white {
-  background-color: rgba(0, 0, 0, 0.3);
-  transition: background-color 0.2s;
-}
-.brand {
-  color: #363636 !important;
-}
-.nav-item {
-  transition: color, 0.2s;
-  color: rgba(255, 255, 255, 1);
-}
-.toggler {
+/* Remove leftover bootstrap card default conflicting hover */
+.card {
   border: none;
-  padding: 4px;
-  border-radius: 4px;
-  &:focus {
-    outline: none;
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-  .boxshadow{
-    filter: drop-shadow(16px 16px red);
-  }
+  background: none;
 }
-.socialicons {
-  color: white;
-  padding-left: 5px;
-  padding-right: 5px;
-  transition: all 0.8s;
-  margin: 4px;
-  &:hover {
-    color: black;
-    padding-left: 5px;
-    padding-right: 5px;
-    transition: all 0.8s;
-    margin: 4px;
-  }
+
+/* Legacy SCSS classes — keep to avoid breaking any leftover usages */
+.typist {
+  font-family: 'Fira Code', monospace;
+  min-height: 3rem;
 }
 
 .title {
   height: 100%;
-  left: 0;
-  right: 0;
+  text-align: center;
   color: #fff;
-  text-align: center;
-  margin-top: 0px;
 }
 
-.typist {
-  font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
-  min-height: 6rem;
-  @media (min-width: 360px) {
-    min-height: 4rem;
-  }
-  @media (min-width: 768px) {
-    min-height: 2.5rem;
-  }
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
 }
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
 
-.card {
-  transition: transform 0.3s, box-shadow 0.3s;
   &:hover {
-    box-shadow: 0 2rem 3rem rgba($black, 0.175) !important;
-    transform: translateY(-2px);
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: var(--color-primary-dim);
   }
 }
-.skills-tabs {
-  flex-grow: 1;
-}
-.skills-tab {
-  flex-grow: 1;
-  text-align: center;
-}
-
-.progress {
-  transform-origin: left;
-  & > * {
-    transform: scaleX(0);
-  }
-}
-.progress-bar-animation {
-  @extend .progress;
-  & > * {
-    animation: progress 1.5s ease-in-out forwards;
-  }
-}
-
-.unselectable {
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-
-
-
-
-////////
-/// 
-/// 
-/// 
-/// 
-

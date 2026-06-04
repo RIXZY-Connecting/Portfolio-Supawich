@@ -97,24 +97,25 @@ const App = () => {
   const titleRef = React.useRef();
 
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      {navBar.show && <Navbar ref={titleRef} />}
-      <Routes>
-        <Route path="/" exact element={<Home ref={titleRef} />} />
-      </Routes>
-      {/* {false && <Route path="/blog" exact component={Blog} />}
-      {false && <Route path="/blog/:id" component={BlogPost} />} */}
-      <Footer>
-        {getInTouch.show && (
-          <GetInTouch
-            heading={getInTouch.heading}
-            message={getInTouch.message}
-            email={getInTouch.email}
-          />
-        )}
-      </Footer>
-    </BrowserRouter>
-    
+    <div style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)', minHeight: '100vh', overflowX: 'hidden' }}>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        {navBar.show && <Navbar ref={titleRef} />}
+        <Routes>
+          <Route path="/" exact element={<Home ref={titleRef} />} />
+        </Routes>
+        {/* {false && <Route path="/blog" exact component={Blog} />}
+        {false && <Route path="/blog/:id" component={BlogPost} />} */}
+        <Footer>
+          {getInTouch.show && (
+            <GetInTouch
+              heading={getInTouch.heading}
+              message={getInTouch.message}
+              email={getInTouch.email}
+            />
+          )}
+        </Footer>
+      </BrowserRouter>
+    </div>
   );
 };
 

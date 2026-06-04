@@ -1,15 +1,19 @@
 import React from 'react';
-import { Col } from "react-bootstrap";
+import { motion } from "framer-motion";
 
-const RyuSkillsCard = ({ data }) => {
+const RyuSkillsCard = ({ data, index }) => {
   return (
-    <Col lg="2">
-        <div className="skill-container unselectable heading-shadow">
-          <img className="skill-logo" src={data.img} alt="" draggable="false" />
-          <p className="skill-name">{data.text}</p>
-        </div>
-      <br/>
-    </Col>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
+      className="skill-card"
+    >
+      <img src={data.img} alt={data.text} draggable="false" />
+      <span>{data.text}</span>
+    </motion.div>
   );
 }
+
 export default RyuSkillsCard;

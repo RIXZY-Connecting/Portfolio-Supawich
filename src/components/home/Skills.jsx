@@ -1,57 +1,74 @@
-import React from "react";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
+import React, { useState } from "react";
 import SkillsTab from "./SkillsTab";
-import Row from "react-bootstrap/Row";
-import { Jumbotron } from "./migration";
-import { Container } from "react-bootstrap";
-import { useScrollPosition } from "../../hooks/useScrollPosition";
+import { motion } from "framer-motion";
 
 const Skills = React.forwardRef(({ heading, hardSkills, softSkills }, ref) => {
-  const skillsTabRef = React.useRef(null);
-  const [isScrolled, setIsScrolled] = React.useState(false);
-  //const navbarDimensions = useResizeObserver(navbarMenuRef);
+  const [activeTab, setActiveTab] = useState("hard");
 
-  useScrollPosition(
-    ({ prevPos, currPos }) => {
-      if (!isScrolled && currPos.y - 400 < 0) setIsScrolled(true);
-    },
-    [],
-    skillsTabRef
-  );
   return (
-    <Jumbotron ref={skillsTabRef} fluid className="bg-white m-0" id="skills">
-      <Container className="p-5 ">
-        <h2 ref={skillsTabRef} className="display-4 pb-5 text-center">
-          {heading}
-        </h2>
-        <Tabs
-          className="skills-tabs"
-          defaultActiveKey="hard-skills"
-          id="skills-tabs"
-          fill
+    <section ref={ref} id="skills" className="py-20 relative z-10 bg-[#070F2B]/50 backdrop-blur-sm border-y border-white/5">
+      <div className="container mx-auto px-4 md:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          className="mb-12 text-center"
         >
-          <Tab
-            tabClassName="skills-tab lead"
-            eventKey="hard-skills"
-            title="Technical Skills"
-          >
-            <Row className="pt-3 px-1">
-              <SkillsTab skills={hardSkills} isScrolled={isScrolled} />
-            </Row>
-          </Tab>
-          <Tab
-            tabClassName="skills-tab lead"
-            eventKey="soft-skills"
-            title="Soft Skills"
-          >
-            <Row className="pt-3 px-1">
-              <SkillsTab skills={softSkills} isScrolled={isScrolled} />
-            </Row>
-          </Tab>
-        </Tabs>
-      </Container>
-    </Jumbotron>
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#9290C3] to-[#ff7f7f]">
+            {heading}
+          </h2>
+        </motion.div>
+        
+        <div className="max-w-5xl mx-auto bg-[#1B1A55]/30 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-10 shadow-2xl">
+          <div className="flex justify-center mb-8 border-b border-white/10 pb-4">
+            <div className="flex space-x-4 bg-black/20 p-1 rounded-full">
+              <button
+                onClick={() => setActiveTab("hard")}
+                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                  activeTab === "hard" 
+                    ? "bg-gradient-to-r from-[#9290C3] to-[#ff7f7f] text-white shadow-lg" 
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                Technical Skills
+              </button>
+              <button
+                onClick={() => setActiveTab("soft")}
+                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                  activeTab === "soft" 
+                    ? "bg-gradient-to-r from-[#9290C3] to-[#ff7f7f] text-white shadow-lg" 
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                Soft Skills
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            {activeTab === "hard" ? (
+              <motion.div
+                key="hard"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <SkillsTab skills={hardSkills} isScrolled={true} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="soft"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <SkillsTab skills={softSkills} isScrolled={true} />
+              </motion.div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 });
 

@@ -1,106 +1,36 @@
-// migration
-$font-size-display-base: null;
-// end migration
+/* Typography enhancements */
 
-$type-scales: (
-  minor-second: 1.067,
-  major-second: 1.125,
-  minor-third: 1.2,
-  major-third: 1.25,
-  perfect-fourth: 1.333,
-  augmented-fourth: 1.414,
-  perfect-fifth: 1.5,
-);
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Code:wght@300;400;500;600;700&display=swap');
 
-$heading-type-scale-base: minor-third;
-$display-type-scale-base: minor-third;
-
-@function check-type-scale-value($scale) {
-  @if map-has-key($type-scales, $scale) {
-    @return map-get($type-scales, $scale);
-  } @else if type-of($scale) == number and unitless($scale) {
-    @return $scale;
-  } @else {
-    @error "Sorry, `#{$scale}` is not a unitless number value or a pre-defined key in the $type-scales map.";
-  }
+/* Fluid type utilities */
+.text-display {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
-@mixin create-heading-type-scale($scale) {
-  $the-heading-type-scale: check-type-scale-value($scale);
-  $font-size-h6: $font-size-base;
-  $font-size-h5: $font-size-h6 * $the-heading-type-scale;
-  $font-size-h4: $font-size-h5 * $the-heading-type-scale;
-  $font-size-h3: $font-size-h4 * $the-heading-type-scale;
-  $font-size-h2: $font-size-h3 * $the-heading-type-scale;
-  $font-size-h1: $font-size-h2 * $the-heading-type-scale;
-  $font-size-display-base: $font-size-h1 !global;
-  h1,
-  .h1 {
-    font-size: $font-size-h1;
-  }
-  h2,
-  .h2 {
-    font-size: $font-size-h2;
-  }
-  h3,
-  .h3 {
-    font-size: $font-size-h3;
-  }
-  h4,
-  .h4 {
-    font-size: $font-size-h4;
-  }
-  h5,
-  .h5 {
-    font-size: $font-size-h5;
-  }
-  h6,
-  .h6 {
-    font-size: $font-size-h6;
-  }
+.text-heading {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
-@mixin create-display-type-scale($scale) {
-  $the-display-type-scale: check-type-scale-value($scale);
-  $font-size-display-4: $font-size-display-base + $font-size-base;
-  $font-size-display-3: $font-size-display-4 * $the-display-type-scale;
-  $font-size-display-2: $font-size-display-3 * $the-display-type-scale;
-  $font-size-display-1: $font-size-display-2 * $the-display-type-scale;
-  .display-4 {
-    font-size: $font-size-display-4;
-  }
-  .display-3 {
-    font-size: $font-size-display-3;
-  }
-  .display-2 {
-    font-size: $font-size-display-2;
-  }
-  .display-1 {
-    font-size: $font-size-display-1;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    }
-    @keyframes blinkTextCursor {
-    from {
-      border-right-color: hsl(0, 0%, 80%);
-    }
-    to {
-      border-right-color: transparent;
-    }
-  }
-  
+.text-mono {
+  font-family: 'Fira Code', monospace;
 }
-// Create the heading font sizes
-@include create-heading-type-scale($heading-type-scale-base);
 
-// Create the display font sizes
-@include create-display-type-scale(minor-second);
-
-// At the Bootstrap md breakpoint, adjust the heading font sizes.
-
-@media (min-width: 576px) {
-  @include create-display-type-scale(major-second);
+.text-body {
+  font-family: 'Figtree', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
 }
-@media (min-width: 768px) {
-  @include create-display-type-scale($display-type-scale-base);
+
+.text-caption {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  font-family: 'Fira Code', monospace;
 }
-$enable-responsive-font-sizes: true;

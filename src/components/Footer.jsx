@@ -1,29 +1,31 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
 
 const Footer = (props) => {
-  const bgStyle = { backgroundColor: "#f5f5f5" };
-
   return (
-    <footer style={bgStyle} className="mt-auto py-5 text-center ">
-      <Container>
+    <footer className="footer-ryu">
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         {props.children}
-        <i className="fas fa-code" /> with <i className="fas fa-heart" /> by{" "}
-        <a
-          rel="noopener"
-          href="https://github.com/RIXZY-Connecting"
-          aria-label="My GitHub"
-        > <span className="badge bg-dark">
-            RIXZY-Connecting
-          </span>
-        </a>{" "}
-        using <i className="fab fa-react" />
-        <p>
-          <small className="text-muted">
 
-          </small>
-        </p>
-      </Container>
+        <div style={{ marginTop: '2.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+          <p style={{ margin: 0 }}>
+            Crafted with{" "}
+            <i className="fas fa-heart" style={{ color: 'oklch(0.68 0.130 188)', margin: '0 0.25rem' }} aria-hidden="true" />
+            by{" "}
+            <a
+              href="https://github.com/RIXZY-Connecting"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
+            >
+              RIXZY-Connecting
+            </a>
+          </p>
+          <p style={{ margin: 0, fontSize: '0.78rem', color: 'var(--color-muted)', fontFamily: "'Fira Code', monospace" }}>
+            React · Vite ·{" "}
+            <span style={{ color: 'oklch(0.68 0.130 188)' }}>@{new Date().getFullYear()}</span>
+          </p>
+        </div>
+      </div>
     </footer>
   );
 };

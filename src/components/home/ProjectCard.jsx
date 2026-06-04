@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
 import Skeleton from "react-loading-skeleton";
 import axios from "axios";
+import { motion } from "framer-motion";
 
-const ProjectCard = ({ value }) => {
+const ProjectCard = ({ value, index }) => {
   const {
     name,
     description,
@@ -13,41 +12,58 @@ const ProjectCard = ({ value }) => {
     languages_url,
     pushed_at,
   } = value;
+  
   return (
-    <Col md={6}>
-      <Card className="card shadow-lg p-3 mb-5 bg-white rounded">
-        <Card.Body>
-          <Card.Title as="h5">{name || <Skeleton />} </Card.Title>
-          <Card.Text>{(!description) ? "" : description || <Skeleton count={3} />} </Card.Text>
-          {svn_url ? <CardButtons svn_url={svn_url} /> : <Skeleton count={2} />}
-          <hr />
-          {languages_url ? (
-            <Language languages_url={languages_url} repo_url={svn_url} />
-          ) : (
-            <Skeleton count={3} />
-          )}
-          {value ? (
-            <CardFooter star_count={stargazers_count} repo_url={svn_url} pushed_at={pushed_at} />
-          ) : (
-            <Skeleton />
-          )}
-        </Card.Body>
-      </Card>
-    </Col>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -5 }}
+      className="bg-[#1B1A55]/30 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-[#9290C3]/20 hover:border-[#9290C3]/50 transition-all duration-300 flex flex-col h-full"
+    >
+      <h5 className="text-2xl font-bold text-white mb-3">
+        {name || <Skeleton className="bg-white/10" />}
+      </h5>
+      <p className="text-gray-300 flex-grow mb-6">
+        {(!description) ? "" : description || <Skeleton count={3} className="bg-white/10" />}
+      </p>
+      
+      {svn_url ? <CardButtons svn_url={svn_url} /> : <Skeleton count={2} className="bg-white/10" />}
+      
+      <div className="w-full h-px bg-white/10 my-4"></div>
+      
+      {languages_url ? (
+        <Language languages_url={languages_url} repo_url={svn_url} />
+      ) : (
+        <Skeleton count={1} className="bg-white/10" />
+      )}
+      
+      {value ? (
+        <CardFooter star_count={stargazers_count} repo_url={svn_url} pushed_at={pushed_at} />
+      ) : (
+        <Skeleton className="bg-white/10" />
+      )}
+    </motion.div>
   );
 };
 
 const CardButtons = ({ svn_url }) => {
   return (
-    <div className="d-grid gap-2 d-md-block">
+    <div className="flex flex-wrap gap-3">
       <a
         href={`${svn_url}/archive/master.zip`}
-        className="btn btn-outline-secondary mx-2"
+        className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-white font-medium text-sm transition-colors no-underline"
       >
-        <i className="fab fa-github" /> Clone Project
+        <i className="fab fa-github mr-2" /> Clone Project
       </a>
-      <a href={svn_url} target=" _blank" className="btn btn-outline-secondary mx-2">
-        <i className="fab fa-github" /> Repository
+      <a 
+        href={svn_url} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="px-4 py-2 bg-gradient-to-r from-[#9290C3] to-[#ff7f7f] hover:opacity-90 rounded-lg text-white font-medium text-sm transition-opacity no-underline shadow-md"
+      >
+        <i className="fab fa-github mr-2" /> Repository
       </a>
     </div>
   );
@@ -77,25 +93,22 @@ const Language = ({ languages_url, repo_url }) => {
   }
 
   return (
-    <div className="pb-3">
-      Languages:{" "}
-      {array.length
-        ? array.map((language) => (
-          <a
-            key={language}
-            className="card-link"
-            href={repo_url + `/search?l=${language}`}
-            target=" _blank"
-            rel="noopener noreferrer"
-          >
-            <span className="badge bg-light text-dark">
-              {language}:{" "}
-              {Math.trunc((data[language] / total_count) * 1000) / 10} %
-            </span>
-          </a>
-
-        ))
-        : "code yet to be deployed."}
+    <div className="flex flex-wrap gap-2 mb-4">
+      {array.length ? array.map((language) => (
+        <a
+          key={language}
+          href={repo_url + `/search?l=${language}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="no-underline"
+        >
+          <span className="px-3 py-1 bg-[#1B1A55] border border-white/5 rounded-full text-xs font-medium text-gray-300 hover:text-white hover:border-[#9290C3] transition-colors">
+            {language}: {Math.trunc((data[language] / total_count) * 1000) / 10}%
+          </span>
+        </a>
+      )) : (
+        <span className="text-sm text-gray-500">Code yet to be deployed.</span>
+      )}
     </div>
   );
 };
@@ -125,19 +138,18 @@ const CardFooter = ({ star_count, repo_url, pushed_at }) => {
   }, [handleUpdatetime]);
 
   return (
-    <p className="card-text">
+    <div className="flex justify-between items-center mt-auto">
       <a
         href={repo_url + "/stargazers"}
-        target=" _blank"
-        className="text-dark text-decoration-none"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:text-[#ff7f7f] transition-colors no-underline flex items-center"
       >
-        <span className="text-dark card-link mr-4">
-          <i className="fab fa-github" /> Stars{" "}
-          <span className="badge badge-dark">{star_count}</span>
-        </span>
+        <i className="fas fa-star mr-2" /> Stars
+        <span className="ml-2 bg-white/10 px-2 py-0.5 rounded-md text-xs">{star_count}</span>
       </a>
-      <small className="text-muted">Updated {updated_at}</small>
-    </p>
+      <small className="text-gray-500 text-xs">Updated {updated_at}</small>
+    </div>
   );
 };
 
