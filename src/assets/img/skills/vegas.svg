@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="vegasBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#031A36" />
+      <stop offset="100%" stop-color="#082E56" />
+    </linearGradient>
+    <linearGradient id="vegasV1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066CC" />
+      <stop offset="100%" stop-color="#0099FF" />
+    </linearGradient>
+    <linearGradient id="vegasV2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00B4D8" />
+      <stop offset="100%" stop-color="#64DFDF" />
+    </linearGradient>
+    <linearGradient id="vegasBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0077B6" />
+      <stop offset="100%" stop-color="#00B4D8" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="26" fill="url(#vegasBg)"/>
+  <rect x="2" y="2" width="124" height="124" rx="24" fill="none" stroke="url(#vegasBorder)" stroke-width="2.5" opacity="0.8"/>
+  <!-- Stylized Vegas 'V' Emblem -->
+  <g transform="translate(64, 58)">
+    <path d="M-34 -30 L-14 -30 L-4 14 L-18 14 Z" fill="url(#vegasV1)"/>
+    <path d="M14 -30 L34 -30 L2 30 L-12 30 Z" fill="url(#vegasV2)"/>
+    <path d="M-4 14 L10 -12 L4 30 L-10 30 Z" fill="#0077B6" opacity="0.6"/>
+  </g>
+  <!-- Subtle 'VEGAS' label at bottom -->
+  <text x="64" y="107" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="14" fill="#90E0EF" letter-spacing="2.5">VEGAS</text>
+</svg>
