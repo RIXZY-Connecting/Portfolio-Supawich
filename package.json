@@ -1,42 +1,21 @@
 {
-  "name": "developers-portfolio",
-  "description": "A personal static website/portfolio template hosted with GitHub Pages, built to showcase my recent projects.",
-  "version": "2.0.0",
+  "name": "portfolio-supawich",
+  "description": "Personal portfolio for Supawich Sriviboonruttana — front-end developer.",
+  "version": "3.0.0",
+  "type": "module",
   "dependencies": {
-    "@emotion/is-prop-valid": "^1.4.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.27.2",
-    "bootstrap": "^5.3.3",
-    "gh-pages": "^4.0.0",
-    "install": "^0.13.0",
-    "jquery": "^3.7.1",
-    "npm": "^10.5.0",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^0.500.0",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
-    "react-loading-skeleton": "^3.1.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
-    "react-typist-component": "^1.0.3",
-    "sass": "^1.54.3",
-    "typescript": "^4.7.4",
-    "web-vitals": "^2.1.4"
+    "sass": "^1.54.3"
   },
   "scripts": {
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
-    "start": "vite",
+    "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "custom-deploy": "node pages.js"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [
@@ -52,10 +31,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.1",
-    "autoprefixer": "^10.5.0",
-    "framer-motion": "^12.38.0",
-    "postcss": "^8.5.12",
-    "tailwindcss": "^3.4.19",
+    "sharp": "^0.35.4",
     "vite": "^8.0.10"
   },
   "packageManager": "yarn@4.9.4+sha512.7b1cb0b62abba6a537b3a2ce00811a843bea02bcf53138581a6ae5b1bf563f734872bd47de49ce32a9ca9dcaff995aa789577ffb16811da7c603dcf69e73750b"
