@@ -1,138 +1,65 @@
-import React, { useState } from "react";
-import { useScrollPosition } from "../hooks/useScrollPosition";
-import useResizeObserver from "../hooks/useResizeObserver";
-import { motion, AnimatePresence } from "framer-motion";
-import { mainBody, repos, about, ryuskills, experiences, education, ryuprojects, getInTouch } from "../editable-stuff/config.js";
+import React from "react";
+import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
+import { Globe, Sun, Moon } from "lucide-react";
 
-const Navigation = React.forwardRef((props, ref) => {
-  const [isTop, setIsTop] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const navbarMenuRef = React.useRef();
-  const navbarDimensions = useResizeObserver(navbarMenuRef);
-  const navBottom = navbarDimensions ? navbarDimensions.bottom : 0;
-
-  useScrollPosition(
-    ({ prevPos, currPos }) => {
-      if (!navbarDimensions) return;
-      currPos.y + (ref.current?.offsetTop || 0) - navbarDimensions.bottom > 5
-        ? setIsTop(true)
-        : setIsTop(false);
-      setScrollPosition(currPos.y);
-    },
-    [navBottom]
-  );
-
-  React.useEffect(() => {
-    if (!navbarDimensions) return;
-    navBottom - scrollPosition >= (ref.current?.offsetTop || 0)
-      ? setIsTop(false)
-      : setIsTop(true);
-  }, [navBottom, navbarDimensions, ref, scrollPosition]);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  const links = [
-    about.show && { name: "About", href: "/#aboutme" },
-    ryuskills.show && { name: "Skills", href: "/#ryuskills" },
-    education.show && { name: "Education", href: "/#education" },
-    experiences.show && { name: "Experience", href: "/#experiences" },
-    ryuprojects.show && { name: "Projects", href: "/#ryuprojects" },
-    repos.show && { name: "GitHub", href: "/#projects" },
-    getInTouch.show && { name: "Contact", href: "/#contact" },
-  ].filter(Boolean);
+const Navbar = ({ theme, toggleTheme, resumeUrl }) => {
+  const { language, toggleLanguage, strings } = useLanguage();
+  const nav = strings.nav;
 
   return (
-    <motion.nav
-      ref={navbarMenuRef}
-      initial={{ y: -100, opacity: 0 }}
+    <motion.header 
+      className="navbar-wrapper"
+      initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`navbar-ryu ${!isTop ? "scrolled" : ""}`}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* Brand */}
-      <a
-        href={import.meta.env.BASE_URL + "/#home"}
-        className="navbar-ryu__brand"
-        aria-label="Back to top"
-      >
-        {`<ryu />`}
-      </a>
+      <nav className="navbar-pill">
+        {/* Brand */}
+        <a href="#hero" className="nav-brand" aria-label="Home">
+          <span className="nav-brand-dot"></span>
+          <span>Supawich S.</span>
+        </a>
 
-      {/* Desktop links */}
-      <ul className="navbar-ryu__links" style={{ display: 'flex' }} aria-label="Site navigation">
-        {links.map((link, i) => (
-          <li key={i} style={{ listStyle: 'none' }}>
-            <a
-              href={import.meta.env.BASE_URL + link.href}
-              className="navbar-ryu__link"
-            >
-              {link.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+        {/* Navigation links */}
+        <ul className="nav-links">
+          <li className="nav-link-item"><a href="#about">{nav.about}</a></li>
+          <li className="nav-link-item"><a href="#skills">{nav.skills}</a></li>
+          <li className="nav-link-item"><a href="#experience">{nav.experience}</a></li>
+          <li className="nav-link-item"><a href="#education">{nav.education}</a></li>
+          <li className="nav-link-item"><a href="#projects">{nav.projects}</a></li>
+          <li className="nav-link-item"><a href="#contact">{nav.contact}</a></li>
+        </ul>
 
-      {/* Mobile hamburger */}
-      <button
-        className="md:hidden"
-        onClick={toggleMenu}
-        aria-label="Toggle navigation"
-        aria-expanded={isOpen}
-        style={{
-          background: 'none',
-          border: 'none',
-          cursor: 'pointer',
-          color: 'var(--color-muted)',
-          fontSize: '1.25rem',
-          padding: '0.25rem',
-          display: 'none',
-        }}
-      >
-        <i className={`fas ${isOpen ? "fa-times" : "fa-bars"}`} />
-      </button>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            style={{
-              position: 'absolute',
-              top: '100%',
-              left: 0,
-              right: 0,
-              background: 'oklch(0.10 0.008 188 / 0.98)',
-              backdropFilter: 'blur(20px)',
-              borderBottom: '1px solid var(--color-border-subtle)',
-              overflow: 'hidden',
-            }}
+        {/* Right actions: Language Switcher + Theme Toggle */}
+        <div className="nav-actions">
+          {/* Language Switcher */}
+          <button
+            onClick={toggleLanguage}
+            className="lang-toggle-btn"
+            aria-label={`Switch to ${language === "en" ? "Thai" : "English"}`}
+            title={`Switch to ${language === "en" ? "ภาษาไทย" : "English"}`}
           >
-            <div style={{ padding: '1rem 1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {links.map((link, i) => (
-                <a
-                  key={i}
-                  href={import.meta.env.BASE_URL + link.href}
-                  onClick={() => setIsOpen(false)}
-                  style={{
-                    color: 'var(--color-muted)',
-                    textDecoration: 'none',
-                    fontSize: '1rem',
-                    fontWeight: 500,
-                  }}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
-  );
-});
+            <Globe size={13} style={{ opacity: 0.8 }} />
+            <span className={`lang-pill-item ${language === "en" ? "active" : ""}`}>EN</span>
+            <span className="lang-pill-sep">/</span>
+            <span className={`lang-pill-item ${language === "th" ? "active" : ""}`}>TH</span>
+          </button>
 
-export default Navigation;
+          {/* Theme Switcher */}
+          <button
+            onClick={toggleTheme}
+            className="theme-toggle-btn"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
+        </div>
+      </nav>
+    </motion.header>
+  );
+};
+
+export default Navbar;
+

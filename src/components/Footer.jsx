@@ -1,33 +1,32 @@
 import React from "react";
+import { useLanguage } from "../context/LanguageContext";
+import { Clock } from "lucide-react";
 
-const Footer = (props) => {
+const Footer = () => {
+  const { strings } = useLanguage();
+  const footer = strings.footer;
+
   return (
-    <footer className="footer-ryu">
-      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-        {props.children}
+    <footer className="footer-editorial">
+      <div className="footer-left">
+        <span className="footer-dot"></span>
+        <span>
+          © {new Date().getFullYear()} Supawich Sriviboonruttana. {footer.rights}
+        </span>
+      </div>
 
-        <div style={{ marginTop: '2.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
-          <p style={{ margin: 0 }}>
-            Crafted with{" "}
-            <i className="fas fa-heart" style={{ color: 'oklch(0.68 0.130 188)', margin: '0 0.25rem' }} aria-hidden="true" />
-            by{" "}
-            <a
-              href="https://github.com/RIXZY-Connecting"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile"
-            >
-              RIXZY-Connecting
-            </a>
-          </p>
-          <p style={{ margin: 0, fontSize: '0.78rem', color: 'var(--color-muted)', fontFamily: "'Fira Code', monospace" }}>
-            React · Vite ·{" "}
-            <span style={{ color: 'oklch(0.68 0.130 188)' }}>@{new Date().getFullYear()}</span>
-          </p>
-        </div>
+      <div className="footer-right">
+        <span className="footer-time-badge">
+          <Clock size={13} />
+          <span>{footer.timeBadge}</span>
+        </span>
+        <a href="#hero" style={{ color: "var(--accent)", fontWeight: 500 }}>
+          {footer.backToTop}
+        </a>
       </div>
     </footer>
   );
 };
 
 export default Footer;
+
