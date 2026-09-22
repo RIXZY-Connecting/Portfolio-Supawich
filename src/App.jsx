@@ -5,117 +5,67 @@ import {
   mainBody,
   about,
   repos,
-  leadership,
-  skills,
   getInTouch,
-  experiences,
   education,
+  experiences,
   ryuprojects,
   ryuskills,
-} from "./editable-stuff/config.js";
-import MainBody from "./components/home/MainBody";
-import AboutMe from "./components/home/AboutMe";
-import Project from "./components/home/Project";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import Skills from "./components/home/Skills";
-import Education from "./components/home/Education";
-// import { Blog } from "./components/blog/Blog";
-// import BlogPost from "./components/blog/BlogPost";
-import GetInTouch from "./components/home/GetInTouch.jsx";
-import Leadership from "./components/home/Leadership.jsx";
-import Experience from "./components/home/Experience";
-import RyuProject from "./components/home/RyuProject.jsx";
-import RyuSkills from "./components/home/RyuSkills.jsx";
+} from "./data/config";
+import { useTheme } from "./hooks/useTheme";
+import { useWindowManager } from "./hooks/useWindowManager";
+import { LanguageProvider } from "./context/LanguageContext";
 
-const Home = React.forwardRef((props, ref) => {
+import WinTaskbar from "./components/WinTaskbar";
+import HeroHeader from "./components/HeroHeader";
+import BentoGrid from "./components/BentoGrid";
+
+const Home = ({ windowManager }) => {
   return (
-    <>
-      <MainBody
-        gradient={mainBody.gradientColors}
-        title={`${mainBody.firstName} ${mainBody.middleName} ${mainBody.lastName}`}
-        message={mainBody.message}
-        icons={mainBody.icons}
-        ref={ref}
+    <main className="win-desktop-area">
+      {/* Hero Header — "Welcome" Window */}
+      <HeroHeader mainBody={mainBody} about={about} />
+
+      {/* Content Windows */}
+      <BentoGrid
+        about={about}
+        skills={ryuskills}
+        experiences={experiences}
+        education={education}
+        ryuprojects={ryuprojects}
+        repos={repos}
+        getInTouch={getInTouch}
+        windowManager={windowManager}
       />
-      {about.show && (
-        <AboutMe
-          heading={about.heading}
-          message={about.message}
-          link={about.imageLink}
-          imgSize={about.imageSize}
-          resume={about.resume}
-          transcript={about.transcript}
-        />
-      )}
-            {ryuskills.show&& (
-         <RyuSkills ryuskills={ryuskills}/>
-      )}
-            {skills.show && (
-        <Skills
-          heading={skills.heading}
-          hardSkills={skills.hardSkills}
-          softSkills={skills.softSkills}
-        />
-      )}
-      {education.show && (
-          <Education education={education}/>
-        )
-      }
-      {experiences.show && (
-          <Experience experiences={experiences}/>
-        )
-      }
-      {ryuprojects.show&& (
-         <RyuProject ryuprojects={ryuprojects}/>
-      )
-
-      }
-
-      {repos.show && (
-        <Project
-          heading={repos.heading}
-          username={repos.gitHubUsername}
-          length={repos.reposLength}
-          specfic={repos.specificRepos}
-        />
-      )}
-      {leadership.show && (
-        <Leadership
-          heading={leadership.heading}
-          message={leadership.message}
-          img={leadership.images}
-          imageSize={leadership.imageSize}
-        />
-      )}
-      
-    </>
+    </main>
   );
-});
+};
 
 const App = () => {
-  const titleRef = React.useRef();
+  const { theme, toggleTheme } = useTheme();
+  const windowManager = useWindowManager();
 
   return (
-    <div style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-ink)', minHeight: '100vh', overflowX: 'hidden' }}>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
-        {navBar.show && <Navbar ref={titleRef} />}
-        <Routes>
-          <Route path="/" exact element={<Home ref={titleRef} />} />
-        </Routes>
-        {/* {false && <Route path="/blog" exact component={Blog} />}
-        {false && <Route path="/blog/:id" component={BlogPost} />} */}
-        <Footer>
-          {getInTouch.show && (
-            <GetInTouch
-              heading={getInTouch.heading}
-              message={getInTouch.message}
-              email={getInTouch.email}
-            />
-          )}
-        </Footer>
+    <LanguageProvider>
+      <BrowserRouter basename={import.meta.env.BASE_URL || "/"}>
+        <div className="win-desktop-shell" data-theme={theme}>
+          {/* Desktop Wallpaper Background */}
+          <div className="win-wallpaper" aria-hidden="true" />
+
+          <Routes>
+            <Route path="/" element={<Home windowManager={windowManager} />} />
+          </Routes>
+
+          {/* Windows Taskbar */}
+          <WinTaskbar
+            theme={theme}
+            toggleTheme={toggleTheme}
+            windowManager={windowManager}
+            profileImage={about.imageLink}
+            profileName={`${mainBody.firstName} ${mainBody.nickname ? `(${mainBody.nickname})` : ""}`}
+          />
+        </div>
       </BrowserRouter>
-    </div>
+    </LanguageProvider>
   );
 };
 
