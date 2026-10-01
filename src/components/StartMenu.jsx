@@ -3,23 +3,23 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import {
   User,
-  Layers,
+  Cpu,
   Briefcase,
   GraduationCap,
-  FolderOpen,
+  FolderGit2,
   Github,
+  Linkedin,
   Mail,
   LogOut,
   ArrowUp,
-  Settings,
 } from "lucide-react";
 
 const MENU_ITEMS = [
   { id: "about", icon: User, label: "About Me", labelTh: "เกี่ยวกับฉัน" },
-  { id: "skills", icon: Layers, label: "Skills", labelTh: "ทักษะ" },
+  { id: "skills", icon: Cpu, label: "Skills", labelTh: "ทักษะ" },
   { id: "experience", icon: Briefcase, label: "Experience", labelTh: "ประสบการณ์" },
   { id: "education", icon: GraduationCap, label: "Education", labelTh: "การศึกษา" },
-  { id: "projects", icon: FolderOpen, label: "Projects", labelTh: "โปรเจกต์" },
+  { id: "projects", icon: FolderGit2, label: "Featured Projects", labelTh: "ผลงานเด่น" },
   { id: "repos", icon: Github, label: "GitHub Repos", labelTh: "GitHub Repos" },
   { id: "contact", icon: Mail, label: "Contact", labelTh: "ติดต่อ" },
 ];
@@ -52,9 +52,9 @@ const StartMenu = ({ isOpen, onClose, onOpenWindow, profileImage, profileName })
           {/* Start Menu Panel */}
           <motion.div
             className="start-menu"
-            initial={{ opacity: 0, y: 20, scale: 0.96 }}
+            initial={{ opacity: 0, y: -16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.96 }}
+            exit={{ opacity: 0, y: -16, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* User Banner */}
@@ -105,7 +105,7 @@ const StartMenu = ({ isOpen, onClose, onOpenWindow, profileImage, profileName })
                   rel="noreferrer noopener"
                   className="start-menu-item start-menu-link"
                 >
-                  <Settings size={16} />
+                  <Linkedin size={16} />
                   <span>LinkedIn</span>
                 </a>
               </div>

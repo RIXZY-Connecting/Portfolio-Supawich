@@ -51,11 +51,7 @@ const App = () => {
           {/* Desktop Wallpaper Background */}
           <div className="win-wallpaper" aria-hidden="true" />
 
-          <Routes>
-            <Route path="/" element={<Home windowManager={windowManager} />} />
-          </Routes>
-
-          {/* Windows Taskbar */}
+          {/* Windows Taskbar / Top Header */}
           <WinTaskbar
             theme={theme}
             toggleTheme={toggleTheme}
@@ -63,6 +59,10 @@ const App = () => {
             profileImage={about.imageLink}
             profileName={`${mainBody.firstName} ${mainBody.nickname ? `(${mainBody.nickname})` : ""}`}
           />
+
+          <Routes>
+            <Route path="/" element={<Home windowManager={windowManager} />} />
+          </Routes>
         </div>
       </BrowserRouter>
     </LanguageProvider>

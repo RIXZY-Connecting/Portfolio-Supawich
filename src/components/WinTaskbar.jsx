@@ -1,11 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { Globe, Sun, Moon } from "lucide-react";
+import {
+  Globe,
+  Sun,
+  Moon,
+  User,
+  Cpu,
+  Briefcase,
+  GraduationCap,
+  FolderGit2,
+  Github,
+  Mail,
+} from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import StartMenu from "./StartMenu";
 
+const TASKBAR_ICONS = {
+  about: User,
+  skills: Cpu,
+  experience: Briefcase,
+  education: GraduationCap,
+  projects: FolderGit2,
+  repos: Github,
+  contact: Mail,
+};
+
 /**
- * WinTaskbar — Windows XP/7 style taskbar at the bottom of the screen.
- * Contains Start button, task buttons for open windows, and a system tray.
+ * WinTaskbar — Windows XP/7 style taskbar header.
+ * Clicking a task button smoothly scrolls to the corresponding window section.
  */
 const WinTaskbar = ({
   theme,
@@ -17,6 +38,7 @@ const WinTaskbar = ({
   const { language, toggleLanguage } = useLanguage();
   const [startOpen, setStartOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
+  const [activeSection, setActiveSection] = useState(null);
 
   useEffect(() => {
     const updateTime = () => {
@@ -34,30 +56,34 @@ const WinTaskbar = ({
     return () => clearInterval(interval);
   }, []);
 
-  const {
-    windows,
-    openWindows,
-    minimizedWindows,
-    activeWindow,
-    focusWindow,
-    toggleMinimize,
-    openWindow,
-  } = windowManager;
+  // Track which section is in view using IntersectionObserver
+  useEffect(() => {
+    const ids = ['about', 'skills', 'experience', 'education', 'projects', 'repos', 'contact'];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: '-60px 0px -40% 0px' }
+    );
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const { windows } = windowManager;
 
   const handleTaskClick = (id) => {
-    if (activeWindow === id && !minimizedWindows.includes(id)) {
-      toggleMinimize(id);
-    } else {
-      if (!openWindows.includes(id)) {
-        openWindow(id);
-      } else {
-        focusWindow(id);
-      }
-      // Scroll to window
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 100);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
@@ -68,22 +94,29 @@ const WinTaskbar = ({
         isOpen={startOpen}
         onClose={() => setStartOpen(false)}
         onOpenWindow={(id) => {
-          openWindow(id);
+          handleTaskClick(id);
           setStartOpen(false);
         }}
         profileImage={profileImage}
         profileName={profileName}
       />
 
-      {/* Taskbar */}
-      <div className="win-taskbar">
+      {/* Taskbar Header */}
+      <header className="win-taskbar" role="banner">
         {/* Start Button */}
         <button
           className={`taskbar-start-btn ${startOpen ? "active" : ""}`}
           onClick={() => setStartOpen(!startOpen)}
           aria-label="Start Menu"
         >
-          <span className="start-btn-icon">⊞</span>
+          <span className="start-btn-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor">
+              <rect x="1.5" y="1.5" width="5.8" height="5.8" rx="1.2" />
+              <rect x="8.7" y="1.5" width="5.8" height="5.8" rx="1.2" />
+              <rect x="1.5" y="8.7" width="5.8" height="5.8" rx="1.2" />
+              <rect x="8.7" y="8.7" width="5.8" height="5.8" rx="1.2" />
+            </svg>
+          </span>
           <span className="start-btn-text">Start</span>
         </button>
 
@@ -93,21 +126,21 @@ const WinTaskbar = ({
         {/* Task Buttons */}
         <div className="taskbar-tasks">
           {windows.map((win) => {
-            const isOpen = openWindows.includes(win.id);
-            const isMinimized = minimizedWindows.includes(win.id);
-            const isActiveWin = activeWindow === win.id && !isMinimized;
-
-            if (!isOpen) return null;
+            const TaskIcon = TASKBAR_ICONS[win.id] || User;
+            const label = language === "th" && win.titleTh ? win.titleTh : win.title;
+            const isActiveWin = activeSection === win.id;
 
             return (
               <button
                 key={win.id}
-                className={`taskbar-task-btn ${isActiveWin ? "active" : ""} ${isMinimized ? "minimized" : ""}`}
+                className={`taskbar-task-btn ${isActiveWin ? "active" : ""}`}
                 onClick={() => handleTaskClick(win.id)}
-                title={win.title}
+                title={label}
               >
-                <span className="taskbar-task-icon">{win.icon}</span>
-                <span className="taskbar-task-label">{win.title}</span>
+                <span className="taskbar-task-icon">
+                  <TaskIcon size={13} />
+                </span>
+                <span className="taskbar-task-label">{label}</span>
               </button>
             );
           })}
@@ -144,7 +177,7 @@ const WinTaskbar = ({
             <span className="systray-clock-time">{currentTime}</span>
           </div>
         </div>
-      </div>
+      </header>
     </>
   );
 };

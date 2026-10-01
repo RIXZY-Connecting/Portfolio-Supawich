@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
-import { Github, Linkedin, Download, Send, Globe } from "lucide-react";
+import { Github, Linkedin, Download, Send, Globe, Monitor } from "lucide-react";
 
 const iconMap = {
   "fa-github": Github,
@@ -23,7 +23,9 @@ const HeroHeader = ({ mainBody, about }) => {
         {/* XP/Win7 Title Bar */}
         <div className="win-hero-titlebar">
           <div className="win-titlebar-left">
-            <span className="win-titlebar-icon">🖥️</span>
+            <span className="win-titlebar-icon">
+              <Monitor size={15} />
+            </span>
             <span className="win-titlebar-text">
               {language === "th" ? "ยินดีต้อนรับ — Supawich's Portfolio" : "Welcome — Supawich's Portfolio"}
             </span>
