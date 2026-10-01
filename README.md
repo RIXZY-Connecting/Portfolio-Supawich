@@ -1,10 +1,29 @@
-# My Portfolio by Supawich #
+# supawich.
 
-This project is part of the subject SELECTED TOPIC IN COMPUTER ✨
-([supawich-portfolio.web.app](https://supawich-portfolio.web.app/)) 
+personal portfolio — [supawich-portfolio.web.app](https://supawich-portfolio.web.app/)
 
-Project using
-* React.js
-* sCSS
-* JavaScript
-* Bootstrap
+---
+
+### stack
+
+```
+react 18 · vite · scss · framer motion · lucide icons
+firebase hosting
+```
+
+### run locally
+
+```bash
+yarn install
+yarn dev
+```
+
+### deploy
+
+```bash
+yarn deploy
+```
+
+---
+
+LGPL-3.0
