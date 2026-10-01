@@ -219,6 +219,14 @@ html[lang="th"] {
     gap: 0.75rem;
   }
 
+.win-about-p {
+  margin-bottom: 0.65rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
   .win-timeline-role {
     font-size: 0.95rem;
     line-height: 1.35;

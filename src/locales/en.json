@@ -17,7 +17,7 @@
   "about": {
     "title": "About Me",
     "badge": "Background",
-    "message": "My name is Supawich (RYU). I graduated from King Mongkut's University of Technology North Bangkok with a degree in Electronic Computer Technology. I am deeply passionate about web development, modern user interfaces, graphic design, and video editing. When I'm not coding, I enjoy photography and learning emerging technologies.",
+    "message": "My name is Supawich (RYU). I graduated from King Mongkut's University of Technology North Bangkok with a degree in Electronic Computer Technology.\n\nI am deeply passionate about web development, modern user interfaces, graphic design, and video editing. When I'm not coding, I enjoy photography and learning emerging technologies.",
     "tags": {
       "kmutnb": "KMUTNB '26",
       "location": "Bangkok, Thailand",
@@ -39,7 +39,7 @@
     "badge": "Career Journey",
     "items": [
       {
-        "role": "Frontend Developer 💻",
+        "role": "Frontend Developer",
         "company": "Laconic Cloud ERP",
         "date": "May 2024 – Mar 2026",
         "duration": "1 yr 11 mos",
@@ -48,14 +48,14 @@
         "description": "Developed and maintained enterprise Cloud ERP frontend with JSP and Oracle PL/SQL, and utilized React to develop internal projects such as PMS and ERP (New TechStack). Designed and built responsive UIs and collaborated on-site with the backend team."
       },
       {
-        "role": "IT Support & Network 🔧",
+        "role": "IT Support & Network",
         "company": "Chanthaburi Technical College",
         "date": "June – July 2021",
         "duration": "2 mos",
         "description": "Administered local campus network infrastructure, configured hardware peripherals, and delivered fast technical support across departments."
       },
       {
-        "role": "Computer Technician 🔧",
+        "role": "Computer Technician",
         "company": "Advice IT Infinite Chanthaburi",
         "date": "Sep 2018 – Mar 2019",
         "duration": "7 mos",

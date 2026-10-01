@@ -29,7 +29,7 @@ const about = {
   heading: "About Me",
   imageLink: new URL("./supawich_profile.webp", import.meta.url).href,
   message:
-    "My name is Supawich (RYU). I graduated from King Mongkut's University of Technology North Bangkok with a degree in Electronic Computer Technology. I am deeply passionate about web development, modern user interfaces, and graphic design. When I'm not coding, I enjoy photography and learning emerging technologies.",
+    "My name is Supawich (RYU). I graduated from King Mongkut's University of Technology North Bangkok with a degree in Electronic Computer Technology.\n\nI am deeply passionate about web development, modern user interfaces, graphic design, and video editing. When I'm not coding, I enjoy photography and learning emerging technologies.",
   resume: null, // Temporarily disabled while updating
   transcript: new URL("./transcript.pdf", import.meta.url).href,
 };
@@ -103,7 +103,7 @@ const experiences = {
   heading: "Experience",
   data: [
     {
-      role: "Frontend Developer 💻",
+      role: "Frontend Developer",
       company: "Laconic Cloud ERP",
       companylogo: new URL('../assets/img/laconic_fed.png', import.meta.url).href,
       date: "May 2024 – Mar 2026",
@@ -113,7 +113,7 @@ const experiences = {
       description: "Developed and maintained enterprise Cloud ERP frontend with JSP and Oracle PL/SQL, and utilized React to develop internal projects such as PMS and ERP (New TechStack). Designed and built responsive UIs and collaborated on-site with the backend team.",
     },
     {
-      role: "IT Support & Network 🔧",
+      role: "IT Support & Network",
       company: "Chanthaburi Technical College",
       companylogo: new URL('../assets/img/logo_technic_Inf.png', import.meta.url).href,
       date: "June – July 2021",
@@ -121,7 +121,7 @@ const experiences = {
       description: "Administered local campus network infrastructure, configured hardware peripherals, and delivered fast technical support across departments.",
     },
     {
-      role: "Computer Technician 🔧",
+      role: "Computer Technician",
       company: "Advice IT Infinite Chanthaburi",
       companylogo: new URL('../assets/img/logo_advice_its.png', import.meta.url).href,
       date: "Sep 2018 – Mar 2019",

@@ -57,10 +57,20 @@ const socialIconMap = {
 export const AboutCard = ({ about }) => {
   const { strings } = useLanguage();
   const tAbout = strings.about;
+  const rawMessage = tAbout.message || about.message;
+  const paragraphs = Array.isArray(rawMessage)
+    ? rawMessage
+    : typeof rawMessage === "string"
+    ? rawMessage.split("\n\n")
+    : [rawMessage];
 
   return (
     <div className="win-card-content">
-      <p className="win-about-text">{tAbout.message || about.message}</p>
+      <div className="win-about-text">
+        {paragraphs.map((para, idx) => (
+          <p key={idx} className="win-about-p">{para}</p>
+        ))}
+      </div>
 
       <div className="win-about-tags">
         <span className="win-tag">
