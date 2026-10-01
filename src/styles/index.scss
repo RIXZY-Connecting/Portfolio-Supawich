@@ -13,10 +13,10 @@
   /* ---- LIGHT: Windows XP Luna Blue ---- */
 
   /* System fonts */
-  --font-system: 'Tahoma', 'Segoe UI', system-ui, sans-serif;
-  --font-display: 'Tahoma', 'Segoe UI', system-ui, sans-serif;
-  --font-mono: 'Consolas', 'JetBrains Mono', ui-monospace, monospace;
-  --font-thai: 'Prompt', 'IBM Plex Sans Thai', system-ui, sans-serif;
+  --font-system: 'Plus Jakarta Sans', 'Prompt', 'IBM Plex Sans Thai', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Prompt', 'IBM Plex Sans Thai', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', ui-monospace, monospace;
+  --font-thai: 'Prompt', 'IBM Plex Sans Thai', 'Plus Jakarta Sans', system-ui, sans-serif;
 
   /* Layout */
   --container-max: 1100px;
@@ -101,10 +101,6 @@
 
 /* ---- DARK: Windows 7 Aero Glass ---- */
 [data-theme="dark"] {
-  /* System fonts (Win7 uses Segoe UI) */
-  --font-system: 'Segoe UI', 'Tahoma', system-ui, sans-serif;
-  --font-display: 'Segoe UI', 'Tahoma', system-ui, sans-serif;
-
   /* Desktop Wallpaper (Win7 Aero Dark Night Sky) */
   --desktop-bg:
     radial-gradient(ellipse 70% 50% at 20% 20%, rgba(45, 95, 175, 0.4) 0%, transparent 60%),
@@ -181,10 +177,82 @@
   --icon-selected-bg: rgba(75, 147, 209, 0.3);
 }
 
-/* Thai Typography */
+/* Thai Typography — prioritizing Prompt for crystal-clear readability & modern aesthetics */
 html[lang="th"] {
-  --font-system: 'Prompt', 'IBM Plex Sans Thai', system-ui, sans-serif;
-  --font-display: 'Prompt', 'IBM Plex Sans Thai', sans-serif;
+  --font-system: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-thai: 'Prompt', system-ui, sans-serif;
+
+  body {
+    line-height: 1.68;
+    letter-spacing: 0;
+  }
+
+  /* Reset letter spacing so Thai vowels and tone marks never collide */
+  *,
+  *::before,
+  *::after {
+    letter-spacing: 0;
+  }
+
+  /* Headings & Titlebars — generous line-height prevents tone mark clipping */
+  .win-hero-name,
+  .win-hero-title,
+  .win-window-title,
+  .win-titlebar-text,
+  .win-project-name,
+  .win-contact-name,
+  .win-edu-school {
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  /* Body copy, descriptions, and timelines */
+  .win-hero-tagline {
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
+    line-height: 1.65;
+  }
+
+  .win-about-text {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    gap: 0.75rem;
+  }
+
+  .win-timeline-role {
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .win-timeline-company {
+    font-size: 0.84rem;
+  }
+
+  .win-timeline-desc {
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+
+  .win-project-info {
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+
+  .win-project-highlight-item span {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .win-tag,
+  .win-badge,
+  .win-meta-pill {
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  .win-skill-name {
+    font-size: 0.78rem;
+  }
 }
 
 /* ============================================================
@@ -206,9 +274,12 @@ body {
   font-family: var(--font-system);
   background: #000;
   color: var(--text-primary);
-  line-height: 1.5;
+  line-height: 1.55;
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 a {
