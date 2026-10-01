@@ -6,13 +6,13 @@ import { useState, useCallback } from 'react';
  */
 
 const DEFAULT_WINDOWS = [
-  { id: 'about', title: 'About Me', icon: '👤' },
-  { id: 'skills', title: 'Skills', icon: '⚙️' },
-  { id: 'experience', title: 'Experience', icon: '💼' },
-  { id: 'education', title: 'Education', icon: '🎓' },
-  { id: 'projects', title: 'Projects', icon: '📁' },
-  { id: 'repos', title: 'GitHub Repos', icon: '🌐' },
-  { id: 'contact', title: 'Contact', icon: '📧' },
+  { id: 'about', title: 'About Me', titleTh: 'เกี่ยวกับฉัน' },
+  { id: 'skills', title: 'Skills', titleTh: 'ทักษะ' },
+  { id: 'experience', title: 'Experience', titleTh: 'ประสบการณ์' },
+  { id: 'education', title: 'Education', titleTh: 'การศึกษา' },
+  { id: 'projects', title: 'Featured Projects', titleTh: 'ผลงานเด่น' },
+  { id: 'repos', title: 'GitHub Repos', titleTh: 'GitHub Repos' },
+  { id: 'contact', title: 'Contact', titleTh: 'ติดต่อ' },
 ];
 
 export function useWindowManager() {

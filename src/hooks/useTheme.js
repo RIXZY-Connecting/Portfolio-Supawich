@@ -6,11 +6,11 @@ import { useState, useEffect, useCallback } from 'react';
  */
 export function useTheme() {
   const [theme, setThemeState] = useState(() => {
-    if (typeof window === 'undefined') return 'light';
+    if (typeof window === 'undefined') return 'dark';
     const stored = localStorage.getItem('portfolio-theme');
     if (stored === 'light' || stored === 'dark') return stored;
-    // Default to light (Windows XP theme)
-    return 'light';
+    // Default to dark (Windows 7 Aero Glass / Dark mode)
+    return 'dark';
   });
 
   useEffect(() => {

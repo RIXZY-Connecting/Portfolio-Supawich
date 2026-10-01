@@ -12,11 +12,11 @@
 :root {
   /* ---- LIGHT: Windows XP Luna Blue ---- */
 
-  /* System fonts */
-  --font-system: 'Plus Jakarta Sans', 'Prompt', 'IBM Plex Sans Thai', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Plus Jakarta Sans', 'Prompt', 'IBM Plex Sans Thai', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Consolas', ui-monospace, monospace;
-  --font-thai: 'Prompt', 'IBM Plex Sans Thai', 'Plus Jakarta Sans', system-ui, sans-serif;
+  /* System fonts — Crisp modern typography with seamless Thai & English support */
+    --font-system: 'Plus Jakarta Sans', 'Prompt', 'IBM Plex Sans Thai', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Plus Jakarta Sans', 'Prompt', 'IBM Plex Sans Thai', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Consolas', ui-monospace, monospace;
+    --font-thai: 'Prompt', 'IBM Plex Sans Thai', 'Plus Jakarta Sans', system-ui, sans-serif;
 
   /* Layout */
   --container-max: 1100px;
@@ -101,6 +101,8 @@
 
 /* ---- DARK: Windows 7 Aero Glass ---- */
 [data-theme="dark"] {
+
+
   /* Desktop Wallpaper (Win7 Aero Dark Night Sky) */
   --desktop-bg:
     radial-gradient(ellipse 70% 50% at 20% 20%, rgba(45, 95, 175, 0.4) 0%, transparent 60%),
@@ -180,87 +182,79 @@
 /* Thai Typography — prioritizing Prompt for crystal-clear readability & modern aesthetics */
 html[lang="th"] {
   --font-system: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-thai: 'Prompt', system-ui, sans-serif;
-
-  body {
-    line-height: 1.68;
-    letter-spacing: 0;
-  }
-
-  /* Reset letter spacing so Thai vowels and tone marks never collide */
-  *,
-  *::before,
-  *::after {
-    letter-spacing: 0;
-  }
-
-  /* Headings & Titlebars — generous line-height prevents tone mark clipping */
-  .win-hero-name,
-  .win-hero-title,
-  .win-window-title,
-  .win-titlebar-text,
-  .win-project-name,
-  .win-contact-name,
-  .win-edu-school {
-    line-height: 1.35;
-    letter-spacing: 0;
-  }
-
-  /* Body copy, descriptions, and timelines */
-  .win-hero-tagline {
-    font-size: clamp(0.85rem, 1vw, 0.95rem);
-    line-height: 1.65;
-  }
-
-  .win-about-text {
-    font-size: 0.94rem;
-    line-height: 1.7;
-    gap: 0.75rem;
-  }
-
-.win-about-p {
-  margin-bottom: 0.65rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-  .win-timeline-role {
-    font-size: 0.95rem;
-    line-height: 1.35;
-  }
-
-  .win-timeline-company {
-    font-size: 0.84rem;
-  }
-
-  .win-timeline-desc {
-    font-size: 0.86rem;
-    line-height: 1.65;
-  }
-
-  .win-project-info {
-    font-size: 0.86rem;
-    line-height: 1.65;
-  }
-
-  .win-project-highlight-item span {
-    font-size: 0.8rem;
-    line-height: 1.5;
-  }
-
-  .win-tag,
-  .win-badge,
-  .win-meta-pill {
-    font-size: 0.76rem;
-    line-height: 1.35;
-  }
-
-  .win-skill-name {
-    font-size: 0.78rem;
-  }
+    --font-display: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-thai: 'Prompt', system-ui, sans-serif;
+  
+    body {
+      line-height: 1.68;
+      letter-spacing: 0;
+    }
+  
+    /* Reset letter spacing so Thai vowels and tone marks never collide */
+    *,
+    *::before,
+    *::after {
+      letter-spacing: 0;
+    }
+  
+    /* Headings & Titlebars — generous line-height prevents tone mark clipping */
+    .win-hero-name,
+    .win-hero-title,
+    .win-window-title,
+    .win-titlebar-text,
+    .win-project-name,
+    .win-contact-name,
+    .win-edu-school {
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+  
+    /* Body copy, descriptions, and timelines */
+    .win-hero-tagline {
+      font-size: clamp(0.85rem, 1vw, 0.95rem);
+      line-height: 1.65;
+    }
+  
+    .win-about-text {
+      font-size: 0.94rem;
+      line-height: 1.7;
+      gap: 0.75rem;
+    }
+  
+    .win-timeline-role {
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+  
+    .win-timeline-company {
+      font-size: 0.84rem;
+    }
+  
+    .win-timeline-desc {
+      font-size: 0.86rem;
+      line-height: 1.65;
+    }
+  
+    .win-project-info {
+      font-size: 0.86rem;
+      line-height: 1.65;
+    }
+  
+    .win-project-highlight-item span {
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+  
+    .win-tag,
+    .win-badge,
+    .win-meta-pill {
+      font-size: 0.76rem;
+      line-height: 1.35;
+    }
+  
+    .win-skill-name {
+      font-size: 0.78rem;
+    }
 }
 
 /* ============================================================
@@ -287,8 +281,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 a {
@@ -320,22 +314,35 @@ img {
   transition: background 0.4s ease;
 }
 
-/* Desktop Wallpaper */
+/* Desktop Wallpaper — Animated Color-Shifting Gradient */
 .win-wallpaper {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background: var(--desktop-bg);
-  background-attachment: fixed;
   overflow: hidden;
-  transition: background 0.5s ease;
+
+  /* Animated gradient background */
+  background:
+    linear-gradient(
+      135deg,
+      #6FAEEB 0%,
+      #89C0F5 14%,
+      #7BA8E8 28%,
+      #AED8FD 42%,
+      #82B5E8 57%,
+      #93C6F2 71%,
+      #DBEEFE 85%,
+      #6FAEEB 100%
+    );
+  background-size: 400% 400%;
+  animation: bgColorShift 18s ease-in-out infinite;
 
   /* Ambient light bloom */
   &::before {
     content: "";
     position: absolute;
     inset: -15%;
-    background: 
+    background:
       radial-gradient(ellipse 65% 45% at 25% 25%, rgba(255, 255, 255, 0.45) 0%, transparent 60%),
       radial-gradient(ellipse 55% 55% at 75% 65%, rgba(85, 165, 255, 0.28) 0%, transparent 60%),
       radial-gradient(ellipse 75% 40% at 50% 95%, rgba(220, 240, 255, 0.5) 0%, transparent 70%);
@@ -343,24 +350,40 @@ img {
     pointer-events: none;
   }
 
-  /* Subtle futuristic tech-dot matrix texture */
+  /* Animated floating dot-matrix pattern */
   &::after {
     content: "";
     position: absolute;
     inset: 0;
     background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px);
     background-size: 28px 28px;
-    opacity: 0.3;
+    opacity: 0.25;
     pointer-events: none;
+    animation: dotPatternDrift 30s linear infinite;
     mask-image: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 80%);
     -webkit-mask-image: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 80%);
   }
 }
 
-/* Dark mode wallpaper layers */
+/* Dark mode wallpaper — animated deep-space gradient */
 [data-theme="dark"] .win-wallpaper {
+  background:
+    linear-gradient(
+      135deg,
+      #07101E 0%,
+      #0C1C36 14%,
+      #112A4D 28%,
+      #0A162B 42%,
+      #0E2040 57%,
+      #081525 71%,
+      #050B15 85%,
+      #07101E 100%
+    );
+  background-size: 400% 400%;
+  animation: bgColorShiftDark 20s ease-in-out infinite;
+
   &::before {
-    background: 
+    background:
       radial-gradient(ellipse 65% 45% at 25% 25%, rgba(55, 120, 210, 0.3) 0%, transparent 60%),
       radial-gradient(ellipse 55% 55% at 75% 65%, rgba(35, 85, 175, 0.25) 0%, transparent 60%),
       radial-gradient(ellipse 75% 40% at 50% 95%, rgba(20, 55, 120, 0.35) 0%, transparent 70%);
@@ -368,8 +391,25 @@ img {
 
   &::after {
     background-image: radial-gradient(rgba(100, 180, 255, 0.25) 1px, transparent 1px);
-    opacity: 0.22;
+    opacity: 0.18;
   }
+}
+
+/* ============================================================
+   SCROLL REVEAL — Smooth entrance animations via IntersectionObserver
+   ============================================================ */
+.win-scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.win-scroll-reveal[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* ============================================================
@@ -379,7 +419,8 @@ img {
   position: relative;
   z-index: 1;
   flex: 1;
-  padding-bottom: calc(var(--taskbar-height) + 16px);
+  padding-top: calc(var(--taskbar-height) + 16px);
+  padding-bottom: 24px;
 }
 
 /* ============================================================
@@ -502,6 +543,17 @@ img {
 .win-titlebar-icon {
   font-size: 14px;
   flex-shrink: 0;
+  display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win-titlebar-text);
+    opacity: 0.95;
+  
+    svg {
+      display: block;
+      width: 14px;
+      height: 14px;
+    }
 }
 
 .win-titlebar-text {
@@ -583,7 +635,7 @@ img {
 .win-hero-section {
   position: relative;
   z-index: 2;
-  padding: 18px 16px 0;
+  padding: 18px 0;
   max-width: var(--container-max);
   margin: 0 auto;
 }
@@ -945,6 +997,13 @@ img {
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1rem;
+  display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  
+  .win-about-p {
+    margin: 0;
 }
 
 .win-about-tags {
@@ -1205,171 +1264,200 @@ img {
 }
 
 /* ============================================================
-   PROJECTS
+   FEATURED PROJECTS (Z-Pattern Showcase Layout)
    ============================================================ */
-.win-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-}
-
-.win-project-card {
+.win-projects-z-list {
   display: flex;
   flex-direction: column;
-  border-radius: 6px;
+  gap: 1.35rem;
+}
+
+.win-project-z-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border-radius: 10px;
   background: var(--surface-raised);
   border: 1px solid var(--surface-border-light);
   overflow: hidden;
-  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    border-color: var(--win-accent-border);
-    transform: translateY(-2px);
-    background: var(--surface-hover);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    border-color: var(--surface-border);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Alternating Z-pattern: reverse row direction for odd cards */
+  &--reverse {
+    flex-direction: row-reverse;
   }
 }
 
-/* Featured / Capstone Portrait Project Card (Full width horizontal split) */
-.win-project-card--featured {
-  grid-column: 1 / -1;
-  flex-direction: row;
-  align-items: stretch;
-  padding: 1.25rem 1.35rem;
-  gap: 1.5rem;
-  background: linear-gradient(135deg, var(--surface-raised) 0%, var(--surface-card) 100%);
-  border: 1.5px solid var(--win-accent-border);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-
-  .win-project-img-wrap {
-    width: 200px;
-    height: 370px;
-    flex-shrink: 0;
-    border-radius: 14px;
-    border: 3px solid var(--surface-border);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
-    background: #0d1117;
-    overflow: hidden;
-    position: relative;
-    margin: auto 0;
-
-    /* Subtle phone notch accent */
-    &::after {
-      content: "";
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 42px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.25);
-      border-radius: 2px;
-      pointer-events: none;
-    }
-  }
-
-  .win-project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-  }
-
-  .win-project-body {
-    padding: 0.25rem 0.25rem 0.25rem 0;
-    justify-content: center;
-  }
-
-  .win-project-name {
-    font-size: 1.4rem;
-    margin-bottom: 0.35rem;
-    color: var(--text-primary);
-  }
-
-  .win-project-info {
-    font-size: 0.86rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 0.65rem;
-  }
+/* Media Showcase Column */
+.win-project-z-media {
+  flex: 0 0 360px;
+  max-width: 42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-sunken);
+  padding: 1.25rem 1rem;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid var(--surface-border-light);
 }
 
-/* Standalone portrait cards (if not featured hero) */
-.win-project-card--portrait:not(.win-project-card--featured) {
-  .win-project-img-wrap {
-    height: 260px;
-    background: #0d1117;
-  }
-  .win-project-img {
-    object-fit: contain;
-    object-position: center;
-  }
+.win-project-z-card--reverse .win-project-z-media {
+  border-right: none;
+  border-left: 1px solid var(--surface-border-light);
 }
 
-/* Landscape standard cards */
-.win-project-card--landscape {
-  .win-project-img-wrap {
-    position: relative;
-    width: 100%;
-    height: 175px;
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.05);
-  }
-
-  .win-project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-}
-
-.win-project-card:hover .win-project-img {
-  transform: scale(1.02);
-}
-
-.win-project-body {
-  padding: 1rem 1.15rem;
+/* Phone Frame (GRPlan Mobile App Mockup) */
+.win-project-phone-frame {
+  width: 140px;
+  height: 250px;
+  border-radius: 20px;
+  border: 3.5px solid #1e293b;
+  background: #0f172a;
+  box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.28), 0 2px 6px rgba(0, 0, 0, 0.16);
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  margin: 0 auto;
 }
 
-.win-project-meta-row {
+.win-phone-notch {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 3px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.win-project-phone-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Browser / Desktop Window Mockup Frame */
+.win-project-browser-frame {
+  width: 100%;
+  max-width: 330px;
+  height: 205px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #0d1117;
+  box-shadow: 0 8px 20px -3px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+[data-theme="dark"] .win-project-browser-frame {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.win-project-browser-bar {
+  height: 24px;
+  background: rgba(18, 24, 38, 0.96);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.win-browser-dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+
+    &--red { background: #ff5f56; }
+    &--yellow { background: #ffbd2e; }
+    &--green { background: #27c93f; }
+  }
+}
+
+.win-browser-address {
+  flex: 1;
+  max-width: 170px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 8.5px;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: var(--font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  .win-browser-lock {
+    font-size: 8px;
+    opacity: 0.8;
+  }
+}
+
+.win-project-browser-img {
+  width: 100%;
+  flex: 1;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Content Column */
+.win-project-z-content {
+  flex: 1;
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* Individual Tech Stack Chips */
+.win-project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.35rem;
   align-items: center;
-  margin-bottom: 0.45rem;
-}
-
-.win-project-badge-highlight {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  background: linear-gradient(135deg, #107c41 0%, #0b5e30 100%);
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  letter-spacing: 0.02em;
-}
-
-[data-theme="dark"] .win-project-badge-highlight {
-  background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
-  color: #0d1117;
+  margin-bottom: 0.55rem;
 }
 
 .win-project-tag {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--win-accent);
   background: var(--win-accent-light);
+  border: 1px solid var(--win-accent-border);
   padding: 0.15rem 0.5rem;
-  border-radius: 3px;
-  width: fit-content;
+  border-radius: 4px;
+  font-weight: 500;
 }
 
 .win-project-name {
@@ -1377,19 +1465,19 @@ img {
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 
 .win-project-info {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
 }
 
-/* Feature bullet highlights (Notes, Events, Groups) */
+/* Highlight bullets */
 .win-project-highlights {
-  margin: 0.4rem 0 0.75rem;
-  padding: 0.65rem 0.85rem;
+  margin: 0.55rem 0 0.75rem;
+  padding: 0.6rem 0.85rem;
   background: var(--surface-base);
   border: 1px solid var(--surface-border-light);
   border-radius: 6px;
@@ -1401,38 +1489,78 @@ img {
 .win-project-highlight-item {
   font-size: 0.78rem;
   color: var(--text-secondary);
-  line-height: 1.45;
+  line-height: 1.5;
   display: flex;
   align-items: flex-start;
   gap: 0.45rem;
 }
 
 .win-highlight-bullet {
-  color: var(--win-accent);
-  font-weight: 800;
-  font-size: 0.8rem;
-  line-height: 1.4;
-  flex-shrink: 0;
-}
-
-.win-project-footer {
-  margin-top: auto;
-  padding-top: 0.5rem;
-}
-
-.win-project-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.78rem;
-  font-weight: 600;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--win-accent-light);
   color: var(--win-accent);
+  flex-shrink: 0;
+  margin-top: 1.5px;
+}
+
+.win-highlight-lead {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.win-highlight-dash {
+  color: var(--text-muted);
+}
+
+/* Action button footer */
+.win-project-footer {
+  margin-top: auto;
+  padding-top: 0.65rem;
+}
+
+.win-project-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.32rem 0.75rem;
+  border-radius: 5px;
+  color: var(--win-accent);
+  background: var(--win-accent-light);
+  border: 1px solid var(--win-accent-border);
   text-decoration: none;
-  transition: all 0.15s ease;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  width: fit-content;
 
   &:hover {
-    color: var(--win-accent-hover);
-    text-decoration: underline;
+    background: var(--win-accent);
+    border-color: var(--win-accent);
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  &:active {
+    opacity: 0.85;
+  }
+}
+
+[data-theme="dark"] .win-project-action-btn {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  color: #38bdf8;
+  box-shadow: none;
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.18);
+    border-color: rgba(56, 189, 248, 0.45);
+    color: #ffffff;
   }
 }
 
@@ -2267,8 +2395,8 @@ img {
     grid-template-columns: repeat(5, 80px);
   }
 
-  .win-projects-grid {
-    grid-template-columns: 1fr;
+  .win-projects-z-list {
+    gap: 1.15rem;
   }
 
   .repos-container {
@@ -2295,22 +2423,33 @@ img {
     width: calc(100% - 16px);
   }
 
-  .win-project-card--featured {
+  .win-project-z-card,
+  .win-project-z-card--reverse {
     flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    gap: 1rem;
+  }
 
-    .win-project-img-wrap {
-      width: min(190px, 65%);
-      height: 330px;
-      margin: 0 auto;
-    }
+  .win-project-z-media {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 1.15rem 1rem;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid var(--surface-border-light);
+  }
 
-    .win-project-body {
-      width: 100%;
-      padding: 0;
-    }
+  .win-project-z-card--reverse .win-project-z-media {
+    border-left: none;
+    border-bottom: 1px solid var(--surface-border-light);
+  }
+
+  .win-project-browser-frame {
+    max-width: 100%;
+    height: 195px;
+  }
+
+  .win-project-z-content {
+    padding: 1rem 1.1rem 1.25rem;
   }
 
   .win-skills-grid {
