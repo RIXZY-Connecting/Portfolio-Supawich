@@ -4,7 +4,7 @@
     "skills": "ทักษะ & เครื่องมือ",
     "experience": "ประสบการณ์",
     "education": "การศึกษา",
-    "projects": "ผลงาน",
+    "projects": "ผลงานเด่น",
     "contact": "ติดต่อ",
     "resume": "เรซูเม่"
   },
@@ -44,8 +44,8 @@
         "date": "พ.ค. 2024 – มี.ค. 2026",
         "duration": "1 ปี 11 เดือน",
         "type": "เต็มเวลา · ในสถานที่",
-        "location": "กรุงเทพมหานคร, ประเทศไทย",
-        "description": "พัฒนาและดูแลระบบ Cloud ERP ฝั่ง Frontend ด้วย jsp กับ Oracle PL/SQL และใช้ React พัฒนาโปรเจคย่อยๆในองค์กรเช่น ระบบ PMS , ERP (New TechStack) และอื่นๆ ออกแบบและสร้าง UI แบบ Responsive ร่วมทำงานกับทีม Backend แบบ on-site"
+        "location": "จันทบุรี, ประเทศไทย",
+        "description": "พัฒนาและดูแลระบบ Cloud ERP ฝั่ง Frontend ด้วย jsp กับ Oracle PL/SQL และใช้ React พัฒนาโปรเจคย่อยๆในองค์กรเช่น ระบบ PMS , ERP (New TechStack) และอื่นๆ ออกแบบและสร้าง UI แบบ Responsive และทำงานร่วมกับทีม Backend แบบ on-site"
       },
       {
         "role": "IT Support & Network",
@@ -92,30 +92,43 @@
     ]
   },
   "projects": {
-    "title": "ผลงาน",
-    "badge": "โปรเจกต์",
+    "title": "ผลงานเด่น",
+    "badge": "ผลงานที่คัดสรร",
     "viewDetails": "ดูรายละเอียด",
+    "viewLive": "เปิดดูเว็บไซต์",
+    "viewGithub": "ดูโค้ดบน GitHub",
     "items": [
+      {
+        "name": "CHP Rolling Engineering",
+        "tag": "Next.js · TypeScript · Tailwind CSS · Cloudflare",
+        "badge": "งานจริง",
+        "info": "เว็บไซต์ B2B ให้กับบริษัทผลิตลูกกลิ้งอุตสาหกรรม ใช้งานจริงบน Production",
+        "highlights": [
+          "Static Export บน Cloudflare Edge — LCP ~172ms",
+          "Contentful CMS + ระบบ 2 ภาษา (ไทย/อังกฤษ)",
+          "Lighthouse Desktop 98 · A11y/SEO 100"
+        ]
+      },
       {
         "name": "GRPlan",
         "tag": "React Native · Spring Boot · PostgreSQL",
-        "badge": "โปรเจกต์จบ (Capstone Project)",
-        "info": "แอปพลิเคชันบนอุปกรณ์พกพาที่ผสมผสานฟังก์ชันระหว่างระบบปฏิทินและระบบจดบันทึกเข้าด้วยกันแบบ All-in-one เพื่อแก้ไขปัญหาการสลับแอปและเพิ่มประสิทธิภาพในการจัดการเวลา พัฒนาด้วย React Native และ Spring Boot ร่วมกับ PostgreSQL รองรับการทำงานร่วมกันเป็นกลุ่ม",
+        "badge": "โปรเจกต์จบ",
+        "info": "แอป All-in-one รวมปฏิทินและบันทึกย่อ รองรับการทำงานร่วมกันเป็นกลุ่ม",
         "highlights": [
-          "ระบบจัดการบันทึกย่อ (Notes): แทรกรูปภาพ เพิ่มสถานที่ และตั้งเวลาแจ้งเตือนล่วงหน้า",
-          "ระบบปฏิทินกิจกรรม (Events): ดูแผนกิจกรรมแบบรายวัน/สัปดาห์/เดือน/ปี พร้อมตั้งค่าการทำซ้ำ",
-          "ระบบกลุ่ม (Groups Collaboration): สร้างกลุ่ม เพิ่มสมาชิก และแชร์ตารางนัดหมายร่วมกัน"
+          "บันทึกย่อ — แทรกรูป, สถานที่ และแจ้งเตือนล่วงหน้า",
+          "ปฏิทิน — ดูตารางรายวัน/สัปดาห์/เดือน/ปี",
+          "กลุ่ม — สร้างกลุ่ม แชร์นัดหมายร่วมกัน"
         ]
       },
       {
         "name": "Portfolio Website (2024)",
         "tag": "React · Node.js · MongoDB",
-        "info": "เว็บไซต์พอร์ตโฟลิโอสำหรับรวบรวมและแสดงผลงาน พัฒนาด้วย React และ SCSS รองรับการแสดงผลทุกหน้าจอและระบบสลับภาษา"
+        "info": "พอร์ตโฟลิโอแสดงผลงาน รองรับทุกหน้าจอและสลับภาษาได้"
       },
       {
         "name": "Student Examination System",
         "tag": "VB.Net · Desktop App",
-        "info": "โปรแกรมทำแบบทดสอบสำหรับนักเรียนชั้น ป.3 มีระบบสุ่มข้อสอบ ตรวจคำนวณคะแนนอัตโนมัติ และบันทึกผลการสอบ"
+        "info": "โปรแกรมแบบทดสอบ ป.3 สุ่มข้อสอบ ตรวจคะแนนอัตโนมัติ"
       }
     ]
   },

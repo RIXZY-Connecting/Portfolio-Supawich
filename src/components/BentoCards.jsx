@@ -30,6 +30,8 @@ import {
   GitBranch,
   PenTool,
   Rocket,
+  Globe,
+  Sparkles,
 } from "lucide-react";
 
 /** Lucide icon lookup for skill items that use icon names */
@@ -303,7 +305,7 @@ export const EducationCard = ({ education }) => {
  * Featured Projects Card
  */
 export const FeaturedProjectsCard = ({ ryuprojects }) => {
-  const { strings } = useLanguage();
+  const { language, strings } = useLanguage();
   const tProj = strings.projects;
 
   const entries = (tProj.items || ryuprojects.data).map((item, idx) => ({
@@ -313,51 +315,123 @@ export const FeaturedProjectsCard = ({ ryuprojects }) => {
 
   return (
     <div className="win-card-content">
-      <div className="win-projects-grid">
+      <div className="win-projects-z-list">
         {entries.map((proj, idx) => {
-          const isPortrait = proj.orientation === "portrait" || proj.featured;
+          const isReverse = idx % 2 === 1;
+          const isPortrait = proj.orientation === "portrait";
+          const isChp = proj.url && proj.url.includes("chprolling.com");
+
+          // Parse tags into individual chips
+          const techTags = proj.tag
+            ? proj.tag.split(/[·•|]/).map((t) => t.trim()).filter(Boolean)
+            : [];
+
           return (
-            <div
+            <article
               key={idx}
-              className={`win-project-card ${isPortrait ? "win-project-card--portrait" : "win-project-card--landscape"} ${proj.featured ? "win-project-card--featured" : ""}`}
+              className={`win-project-z-card ${isReverse ? "win-project-z-card--reverse" : ""}`}
             >
-              <div className="win-project-img-wrap">
-                <img
-                  src={proj.img}
-                  alt={proj.name}
-                  className="win-project-img"
-                  loading="lazy"
-                  decoding="async"
-                />
+              {/* Media showcase column */}
+              <div className="win-project-z-media">
+                {isPortrait ? (
+                  <div className="win-project-phone-frame">
+                    <div className="win-phone-notch" />
+                    <img
+                      src={proj.img}
+                      alt={proj.name}
+                      className="win-project-phone-img"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : (
+                  <div className="win-project-browser-frame">
+                    <div className="win-project-browser-bar">
+                      <div className="win-browser-dots">
+                        <span className="dot dot--red" />
+                        <span className="dot dot--yellow" />
+                        <span className="dot dot--green" />
+                      </div>
+                      <div className="win-browser-address">
+                        <span className="win-browser-lock">🔒</span>
+                        <span>{isChp ? "chprolling.com" : proj.name.toLowerCase().replace(/[^a-z0-9]/g, "") + ".local"}</span>
+                      </div>
+                    </div>
+                    <img
+                      src={proj.img}
+                      alt={proj.name}
+                      className="win-project-browser-img"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                )}
               </div>
 
-              <div className="win-project-body">
-                <div className="win-project-meta-row">
-                  {proj.badge && (
-                    <span className="win-project-badge-highlight">
-                      🎓 {proj.badge}
-                    </span>
-                  )}
-                  {proj.tag && <span className="win-project-tag">{proj.tag}</span>}
-                </div>
+              {/* Content column */}
+              <div className="win-project-z-content">
+                {techTags.length > 0 && (
+                  <div className="win-project-tags">
+                    {techTags.map((tech, tIdx) => (
+                      <span key={tIdx} className="win-project-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 <h3 className="win-project-name">{proj.name}</h3>
                 <p className="win-project-info">{proj.info}</p>
 
                 {proj.highlights && proj.highlights.length > 0 && (
                   <div className="win-project-highlights">
-                    {proj.highlights.map((item, hIdx) => (
-                      <div key={hIdx} className="win-project-highlight-item">
-                        <span className="win-highlight-bullet">✓</span>
-                        <span>{item}</span>
-                      </div>
-                    ))}
+                    {proj.highlights.map((item, hIdx) => {
+                      const hasDash = item.includes("—");
+                      const parts = hasDash ? item.split("—") : [item];
+
+                      return (
+                        <div key={hIdx} className="win-project-highlight-item">
+                          <span className="win-highlight-bullet">
+                            <Check size={11} strokeWidth={2.5} />
+                          </span>
+                          <span className="win-highlight-text">
+                            {hasDash ? (
+                              <>
+                                <strong className="win-highlight-lead">
+                                  {parts[0].trim()}
+                                </strong>
+                                <span className="win-highlight-dash"> — </span>
+                                {parts.slice(1).join("—").trim()}
+                              </>
+                            ) : (
+                              item
+                            )}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
 
-
+                {/* Only render action button for CHP Rolling website */}
+                {isChp && (
+                  <div className="win-project-footer">
+                    <a
+                      href={proj.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="win-project-action-btn"
+                    >
+                      <span>
+                        {tProj.viewLive ||
+                          (language === "th" ? "เปิดดูเว็บไซต์" : "Visit Website")}
+                      </span>
+                      <ExternalLink size={12} />
+                    </a>
+                  </div>
+                )}
               </div>
-            </div>
+            </article>
           );
         })}
       </div>

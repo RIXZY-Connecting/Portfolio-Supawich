@@ -136,17 +136,33 @@ const ryuprojects = {
   heading: "Featured Projects",
   data: [
     {
+      img: new URL('../assets/img/chp-rolling.webp', import.meta.url).href,
+      name: "CHP Rolling Engineering",
+      badge: "งานจริง",
+      badgeType: "commercial",
+      tag: "Next.js · TypeScript · Tailwind CSS · Cloudflare",
+      orientation: "landscape",
+      featured: true,
+      info: "เว็บไซต์ B2B ให้กับบริษัทผลิตลูกกลิ้งอุตสาหกรรม ใช้งานจริงบน Production",
+      highlights: [
+        "Static Export บน Cloudflare Edge — LCP ~172ms",
+        "Contentful CMS + ระบบ 2 ภาษา (ไทย/อังกฤษ)",
+        "Lighthouse Desktop 98 · A11y/SEO 100"
+      ],
+      url: "https://chprolling.com",
+    },
+    {
       img: new URL('../assets/img/ProjectGraduate.PNG', import.meta.url).href,
       name: "GRPlan",
-      badge: "โปรเจกต์จบ (Capstone Project)",
+      badge: "โปรเจกต์จบ",
       tag: "React Native · Spring Boot · PostgreSQL",
       orientation: "portrait",
       featured: true,
-      info: "แอปพลิเคชันบนสมาร์ตโฟนที่ผสานระบบปฏิทินและบันทึกย่อเข้าด้วยกันแบบ All-in-one เพื่อแก้ไขปัญหาการสลับแอปและเพิ่มประสิทธิภาพการจัดการเวลา พัฒนาด้วย React Native, Spring Boot และ PostgreSQL รองรับการทำงานร่วมกันเป็นกลุ่ม",
+      info: "แอป All-in-one รวมปฏิทินและบันทึกย่อ รองรับการทำงานร่วมกันเป็นกลุ่ม",
       highlights: [
-        "ระบบบันทึกย่อ (Notes): แทรกรูปภาพ เพิ่มพิกัดสถานที่ และตั้งเวลาแจ้งเตือนล่วงหน้า",
-        "ระบบปฏิทินกิจกรรม (Events): ดูตารางแบบรายวัน/สัปดาห์/เดือน/ปี พร้อมตั้งค่าการทำซ้ำ",
-        "ระบบกลุ่ม (Collaboration): สร้างกลุ่ม เพิ่มสมาชิก และแชร์ตารางนัดหมายร่วมกัน"
+        "บันทึกย่อ — แทรกรูป, สถานที่ และแจ้งเตือนล่วงหน้า",
+        "ปฏิทิน — ดูตารางรายวัน/สัปดาห์/เดือน/ปี",
+        "กลุ่ม — สร้างกลุ่ม แชร์นัดหมายร่วมกัน"
       ],
       url: "https://github.com/RIXZY-Connecting",
     },

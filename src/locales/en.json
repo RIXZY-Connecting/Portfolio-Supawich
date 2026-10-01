@@ -4,7 +4,7 @@
     "skills": "Skills",
     "experience": "Experience",
     "education": "Education",
-    "projects": "Projects",
+    "projects": "Featured Projects",
     "contact": "Contact",
     "resume": "Resume"
   },
@@ -93,29 +93,42 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "badge": "Showcase",
+    "badge": "Selected Works",
     "viewDetails": "View Details",
+    "viewLive": "Visit Website",
+    "viewGithub": "View on GitHub",
     "items": [
+      {
+        "name": "CHP Rolling Engineering",
+        "tag": "Next.js · TypeScript · Tailwind CSS · Cloudflare",
+        "badge": "Production",
+        "info": "B2B corporate site for an industrial roller manufacturer. Live on production.",
+        "highlights": [
+          "Static export on Cloudflare Edge — LCP ~172ms",
+          "Contentful CMS + bilingual i18n (TH/EN)",
+          "Lighthouse Desktop 98 · A11y/SEO 100"
+        ]
+      },
       {
         "name": "GRPlan",
         "tag": "React Native · Spring Boot · PostgreSQL",
         "badge": "Capstone Project",
-        "info": "All-in-one mobile calendar and smart note-taking application designed to eliminate app-switching friction and elevate time management. Built with React Native, Spring Boot, and PostgreSQL with group collaboration.",
+        "info": "All-in-one mobile app combining calendar and smart notes with group collaboration.",
         "highlights": [
-          "Notes Management: Insert images, attach locations, and schedule advance reminders",
-          "Events Calendar: Day/Week/Month/Year schedule views with flexible recurrence rules",
-          "Group Collaboration: Create groups, invite members, and coordinate shared appointments"
+          "Notes — insert images, locations & advance reminders",
+          "Calendar — day/week/month/year schedule views",
+          "Groups — create groups & share appointments"
         ]
       },
       {
         "name": "Portfolio Website (2024)",
         "tag": "React · Node.js · MongoDB",
-        "info": "Modern responsive portfolio built to showcase creative work, featuring dynamic styling, project highlights, and clean typography."
+        "info": "Responsive portfolio with multi-language support."
       },
       {
         "name": "Student Examination System",
         "tag": "VB.Net · Desktop App",
-        "info": "Comprehensive testing application for 3rd-grade students featuring automated question randomization, instant scoring, and results tracking."
+        "info": "Testing app for 3rd-graders with randomized questions and auto-scoring."
       }
     ]
   },
