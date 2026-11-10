@@ -40,7 +40,7 @@ const WinWindow = ({
                 : icon}
             </span>
           )}
-          <span className="win-titlebar-text">{title}</span>
+          <h2 className="win-titlebar-text">{title}</h2>
         </div>
       </div>
 

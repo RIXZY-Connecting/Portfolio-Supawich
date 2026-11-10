@@ -81,12 +81,18 @@ export const AboutCard = ({ about }) => {
         </span>
         <span className="win-tag">
           <MapPin size={14} />
-          {tAbout.tags?.location || "Bangkok, Thailand"}
+          {tAbout.tags?.location || "จันทบุรี, ประเทศไทย"}
         </span>
         <span className="win-tag">
           <Code size={14} />
           {tAbout.tags?.frontendDev || "Frontend Dev"}
         </span>
+        {tAbout.tags?.aiWorkflow && (
+          <span className="win-tag">
+            <Sparkles size={14} />
+            {tAbout.tags.aiWorkflow}
+          </span>
+        )}
         <span className="win-tag">
           <Palette size={14} />
           {tAbout.tags?.uiUx || "UI / UX Design"}
@@ -347,15 +353,12 @@ export const FeaturedProjectsCard = ({ ryuprojects }) => {
                 ) : (
                   <div className="win-project-browser-frame">
                     <div className="win-project-browser-bar">
-                      <div className="win-browser-dots">
-                        <span className="dot dot--red" />
-                        <span className="dot dot--yellow" />
-                        <span className="dot dot--green" />
+                      <div className="win-browser-dots win-browser-controls-win">
+                        <span className="dot dot--min" />
+                        <span className="dot dot--max" />
+                        <span className="dot dot--close" />
                       </div>
-                      <div className="win-browser-address">
-                        <span className="win-browser-lock">🔒</span>
-                        <span>{isChp ? "chprolling.com" : proj.name.toLowerCase().replace(/[^a-z0-9]/g, "") + ".local"}</span>
-                      </div>
+
                     </div>
                     <img
                       src={proj.img}

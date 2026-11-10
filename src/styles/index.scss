@@ -72,7 +72,7 @@
 
   --text-primary: #000000;
   --text-secondary: #333333;
-  --text-muted: #6D6D6D;
+  --text-muted: #575757;
 
   /* Surfaces */
   --surface-bg: #ECE9D8;
@@ -152,7 +152,7 @@
 
   --text-primary: #F0F0F0;
   --text-secondary: #B8B8B8;
-  --text-muted: #808080;
+  --text-muted: #9E9E9E;
 
   /* Surfaces */
   --surface-bg: rgba(28, 28, 32, 0.92);
@@ -301,6 +301,14 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* Accessible focus ring for keyboard navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--win-accent);
+  outline-offset: 2px;
 }
 
 /* ============================================================
@@ -559,6 +567,7 @@ img {
 .win-titlebar-text {
   font-size: 12px;
   font-weight: 600;
+  margin: 0;
   color: var(--win-titlebar-text);
   text-shadow: 0 1px 2px rgba(0,0,0,0.4);
   white-space: nowrap;
@@ -1388,14 +1397,26 @@ img {
   gap: 4px;
 
   .dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
     display: inline-block;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 
-    &--red { background: #ff5f56; }
-    &--yellow { background: #ffbd2e; }
-    &--green { background: #27c93f; }
+    &--min {
+      border-radius: 1px;
+    }
+
+    &--max {
+      border-radius: 1px;
+    }
+
+    &--close {
+      border-radius: 1px;
+      background: rgba(220, 60, 40, 0.6);
+      border-color: rgba(220, 60, 40, 0.4);
+    }
   }
 }
 

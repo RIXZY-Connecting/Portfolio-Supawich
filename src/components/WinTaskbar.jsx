@@ -136,6 +136,7 @@ const WinTaskbar = ({
                 className={`taskbar-task-btn ${isActiveWin ? "active" : ""}`}
                 onClick={() => handleTaskClick(win.id)}
                 title={label}
+                aria-current={isActiveWin ? "true" : undefined}
               >
                 <span className="taskbar-task-icon">
                   <TaskIcon size={13} />

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import { Github, ExternalLink, Star, GitFork } from "lucide-react";
 
@@ -66,13 +65,7 @@ const GitHubRepos = ({ reposConfig }) => {
   if (!reposConfig.show) return null;
 
   return (
-    <motion.div
-      className="bento-card card-col-12"
-      initial={{ opacity: 0, y: 15 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="bento-card card-col-12">
       <div className="card-header-clean">
         <div className="card-title-group">
           <span className="card-icon-badge">
@@ -85,7 +78,7 @@ const GitHubRepos = ({ reposConfig }) => {
           target="_blank"
           rel="noreferrer noopener"
           className="card-badge"
-          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: 'var(--accent)' }}
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: 'var(--win-accent)' }}
         >
           <span>@{reposConfig.gitHubUsername}</span>
           <ExternalLink size={11} />
@@ -93,9 +86,9 @@ const GitHubRepos = ({ reposConfig }) => {
       </div>
 
       {loading ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.85rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.85rem' }} aria-busy="true">
           {[1, 2].map((n) => (
-            <div key={n} style={{ height: 110, borderRadius: 'var(--radius-md)', background: 'var(--bg-surface-raised)', opacity: 0.6 }} />
+            <div key={n} style={{ height: 110, borderRadius: '4px', background: 'var(--surface-raised)', opacity: 0.6 }} />
           ))}
         </div>
       ) : (
@@ -118,7 +111,7 @@ const GitHubRepos = ({ reposConfig }) => {
                   <span style={{ display: 'inline-flex', alignItems: 'center' }}>
                     <span
                       className="repo-lang-dot"
-                      style={{ background: langColors[repo.language] || "var(--accent)" }}
+                      style={{ background: langColors[repo.language] || "var(--win-accent)" }}
                     />
                     {repo.language}
                   </span>
@@ -136,7 +129,7 @@ const GitHubRepos = ({ reposConfig }) => {
           ))}
         </div>
       )}
-    </motion.div>
+    </div>
   );
 };
 
